@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ruddrava's Master Routine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0c0e14;
+    --bg2: #13151e;
+    --bg3: #1a1d28;
+    --card: #1e2130;
+    --border: #2a2d3e;
+    --accent: #a8ff78;
+    --accent2: #78c7ff;
+    --accent3: #ffb347;
+    --accent4: #ff7eb3;
+    --text: #e8eaf2;
+    --text2: #8b90a8;
+    --text3: #565970;
+    --study: rgba(120, 199, 255, 0.12);
+    --study-text: #78c7ff;
+    --workout: rgba(168, 255, 120, 0.12);
+    --workout-text: #a8ff78;
+    --theatre: rgba(255, 179, 71, 0.12);
+    --theatre-text: #ffb347;
+    --guitar: rgba(255, 126, 179, 0.12);
+    --guitar-text: #ff7eb3;
+    --webdev: rgba(168, 120, 255, 0.12);
+    --webdev-text: #b878ff;
+    --rest: rgba(139, 144, 168, 0.1);
+    --rest-text: #8b90a8;
+    --radius: 10px;
+    --radius-sm: 6px;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 2rem 0 0;
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 100;
+  }
+
+  .header-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .header-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+    gap: 1rem;
+  }
+
+  .brand {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+
+  .brand span { color: var(--accent); }
+
+  .meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--text3);
+    text-align: right;
+    line-height: 1.8;
+  }
+
+  nav {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  nav::-webkit-scrollbar { display: none; }
+
+  .nav-btn {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--text3);
+    background: none;
+    border: none;
+    padding: 0.65rem 1.25rem;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: color 0.15s, border-color 0.15s;
+  }
+
+  .nav-btn:hover { color: var(--text2); }
+  .nav-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+  }
+
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* Pills */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .pill.study   { background: var(--study);   color: var(--study-text); }
+  .pill.workout { background: var(--workout); color: var(--workout-text); }
+  .pill.theatre { background: var(--theatre); color: var(--theatre-text); }
+  .pill.guitar  { background: var(--guitar);  color: var(--guitar-text); }
+  .pill.webdev  { background: var(--webdev);  color: var(--webdev-text); }
+  .pill.rest    { background: var(--rest);    color: var(--rest-text); }
+
+  /* Day cards */
+  .day-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 1rem;
+    overflow: hidden;
+  }
+
+  .day-header {
+    padding: 0.875rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .day-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .day-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: 0.01em;
+  }
+
+  .day-body { padding: 0.5rem 0; }
+
+  .blk {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0.45rem 1.25rem;
+  }
+
+  .blk:hover { background: rgba(255,255,255,0.02); }
+
+  .t {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--text3);
+    min-width: 115px;
+    padding-top: 2px;
+    flex-shrink: 0;
+  }
+
+  .blk-content {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: var(--text2);
+  }
+
+  /* Legend */
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Study section */
+  .exam-table {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 2rem;
+  }
+
+  .exam-row {
+    display: grid;
+    grid-template-columns: 150px 1fr auto;
+    gap: 1rem;
+    align-items: center;
+    padding: 0.75rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+  }
+
+  .exam-row:last-child { border-bottom: none; }
+  .exam-row:hover { background: rgba(255,255,255,0.02); }
+
+  .exam-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--text3);
+  }
+
+  .exam-name { color: var(--text); font-weight: 500; }
+
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-size: 10.5px;
+    font-weight: 600;
+    font-family: 'DM Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .badge.s4 { background: var(--study); color: var(--study-text); }
+  .badge.bl { background: var(--theatre); color: var(--theatre-text); }
+
+  .section-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text3);
+    margin: 0 0 0.875rem;
+  }
+
+  /* Phase cards */
+  .phase-grid {
+    display: grid;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .phase-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+  }
+
+  .phase-card.blue   { border-left-color: var(--accent2); }
+  .phase-card.green  { border-left-color: var(--accent); }
+  .phase-card.orange { border-left-color: var(--accent3); }
+  .phase-card.purple { border-left-color: #b878ff; }
+  .phase-card.lime   { border-left-color: #c8ff78; }
+  .phase-card.neutral { border-left-color: var(--text3); }
+
+  .phase-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+
+  .phase-body {
+    font-size: 12.5px;
+    color: var(--text2);
+    line-height: 1.7;
+  }
+
+  .phase-body strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  /* Assignment section */
+  .assign-row {
+    display: grid;
+    grid-template-columns: 120px 1fr 130px;
+    gap: 1rem;
+    align-items: center;
+    padding: 0.75rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+  }
+
+  .assign-row:last-child { border-bottom: none; }
+  .assign-row:hover { background: rgba(255,255,255,0.02); }
+
+  .assign-days {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--accent3);
+  }
+
+  .assign-name { color: var(--text); font-weight: 500; }
+
+  .assign-note {
+    font-size: 11.5px;
+    color: var(--text3);
+    text-align: right;
+  }
+
+  /* Fitness section */
+  .workout-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .workout-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem;
+  }
+
+  .workout-day {
+    font-family: 'DM Mono', monospace;
+    font-size: 10.5px;
+    color: var(--text3);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.35rem;
+  }
+
+  .workout-type {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .workout-ex {
+    font-size: 11.5px;
+    color: var(--text2);
+    line-height: 1.8;
+  }
+
+  /* Milestone bar */
+  .milestone-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+  }
+
+  .milestone-row:last-child { border-bottom: none; }
+
+  .milestone-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--text3);
+    min-width: 90px;
+  }
+
+  .milestone-kg {
+    font-family: 'Syne', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--accent);
+    min-width: 60px;
+  }
+
+  .milestone-note { color: var(--text2); font-size: 12.5px; }
+
+  /* Info box */
+  .info-box {
+    background: rgba(168, 255, 120, 0.05);
+    border: 1px solid rgba(168, 255, 120, 0.15);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    font-size: 12.5px;
+    color: var(--text2);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .info-box strong { color: var(--accent); font-weight: 500; }
+
+  /* Deadlines banner */
+  .deadline-banner {
+    background: rgba(255, 179, 71, 0.08);
+    border: 1px solid rgba(255, 179, 71, 0.2);
+    border-radius: var(--radius);
+    padding: 0.875rem 1.25rem;
+    font-size: 12.5px;
+    color: var(--accent3);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .deadline-banner .icon {
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .workout-grid { grid-template-columns: repeat(2, 1fr); }
+    .exam-row { grid-template-columns: 1fr auto; }
+    .exam-date { display: none; }
+    .assign-row { grid-template-columns: 1fr; gap: 0.25rem; }
+    .assign-note { text-align: left; }
+    .header-top { flex-direction: column; gap: 0.5rem; }
+    .meta { text-align: left; }
+    .milestone-row { flex-wrap: wrap; }
+  }
+
+  @media (max-width: 420px) {
+    .workout-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="header-top">
+      <div>
+        <div class="brand">Ruddrava's <span>Master Routine</span></div>
+        <div style="font-size:12px;color:var(--text3);margin-top:4px;">BCA Sem 4 · IGNOU · Apr – Aug 2026</div>
+      </div>
+      <div class="meta">
+        Exams: Jun 11–25, 2026<br>
+        Assignments due: Apr 30, 2026<br>
+        Fitness goal: ~75 kg by Aug
+      </div>
+    </div>
+    <nav>
+      <button class="nav-btn active" onclick="switchTab('schedule', this)">Weekly schedule</button>
+      <button class="nav-btn" onclick="switchTab('assignments', this)">Assignments</button>
+      <button class="nav-btn" onclick="switchTab('study', this)">Study plan</button>
+      <button class="nav-btn" onclick="switchTab('fitness', this)">Fitness</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- SCHEDULE -->
+  <div id="schedule" class="section active">
+
+    <div class="legend">
+      <span class="pill study">Study</span>
+      <span class="pill workout">Workout</span>
+      <span class="pill theatre">Theatre</span>
+      <span class="pill guitar">Guitar</span>
+      <span class="pill webdev">Web dev</span>
+      <span class="pill rest">Walk / rest</span>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-dot" style="background:var(--accent2);"></div>
+        <div class="day-title">Monday &amp; Wednesday — free evenings</div>
+      </div>
+      <div class="day-body">
+        <div class="blk"><span class="t">5:45 AM</span><div class="blk-content">Wake up — water before anything else</div></div>
+        <div class="blk"><span class="t">6:00 – 7:15 AM</span><div class="blk-content"><span class="pill workout">Workout</span> Strength session (see fitness tab)</div></div>
+        <div class="blk"><span class="t">7:15 – 8:30 AM</span><div class="blk-content"><span class="pill rest">Personal</span> Freshen up, high-protein breakfast</div></div>
+        <div class="blk"><span class="t">9:00 – 12:00 PM</span><div class="blk-content"><span class="pill study">Study</span> Block 1 — priority exam subject (MCS-206 or BCS-041)</div></div>
+        <div class="blk"><span class="t">12:00 – 1:00 PM</span><div class="blk-content"><span class="pill rest">Break</span> Lunch, short rest — no screens</div></div>
+        <div class="blk"><span class="t">1:00 – 1:30 PM</span><div class="blk-content"><span class="pill guitar">Guitar</span> Scales, chords, song practice — never skip</div></div>
+        <div class="blk"><span class="t">1:30 – 4:30 PM</span><div class="blk-content"><span class="pill study">Study</span> Block 2 — second subject or backlog theory</div></div>
+        <div class="blk"><span class="t">4:30 – 5:30 PM</span><div class="blk-content"><span class="pill rest">Walk</span> Your existing cardio — this is non-negotiable</div></div>
+        <div class="blk"><span class="t">6:00 – 7:30 PM</span><div class="blk-content"><span class="pill webdev">Web dev</span> Udemy session — 1.5 hrs focused</div></div>
+        <div class="blk"><span class="t">7:30 – 10:30 PM</span><div class="blk-content"><span class="pill rest">Relax</span> Dinner, unwind — no heavy content</div></div>
+        <div class="blk"><span class="t">11:00 PM</span><div class="blk-content"><span class="pill rest">Sleep</span> 7 hrs minimum — non-negotiable</div></div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-dot" style="background:var(--accent3);"></div>
+        <div class="day-title">Tuesday &amp; Thursday — theatre evenings</div>
+      </div>
+      <div class="day-body">
+        <div class="blk"><span class="t">6:00 – 7:00 AM</span><div class="blk-content"><span class="pill workout">Workout</span> HIIT — shorter, more intense (45 min max)</div></div>
+        <div class="blk"><span class="t">7:15 – 8:30 AM</span><div class="blk-content"><span class="pill rest">Personal</span> Freshen up, breakfast</div></div>
+        <div class="blk"><span class="t">9:00 – 12:00 PM</span><div class="blk-content"><span class="pill study">Study</span> Block 1</div></div>
+        <div class="blk"><span class="t">12:00 – 1:00 PM</span><div class="blk-content"><span class="pill rest">Break</span> Lunch</div></div>
+        <div class="blk"><span class="t">1:00 – 1:30 PM</span><div class="blk-content"><span class="pill guitar">Guitar</span> Daily practice</div></div>
+        <div class="blk"><span class="t">1:30 – 5:00 PM</span><div class="blk-content"><span class="pill study">Study</span> Block 2</div></div>
+        <div class="blk"><span class="t">5:00 – 6:00 PM</span><div class="blk-content"><span class="pill rest">Personal</span> Light snack, travel prep for theatre</div></div>
+        <div class="blk"><span class="t">6:00 – 9:00 PM</span><div class="blk-content"><span class="pill theatre">Theatre</span> Acting session</div></div>
+        <div class="blk"><span class="t">9:00 PM+</span><div class="blk-content"><span class="pill rest">Relax</span> Dinner, wind down — sleep by 11:30</div></div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-dot" style="background:#b878ff;"></div>
+        <div class="day-title">Friday — free evening (push day)</div>
+      </div>
+      <div class="day-body">
+        <div class="blk"><span class="t">6:00 – 7:15 AM</span><div class="blk-content"><span class="pill workout">Workout</span> Full body strength</div></div>
+        <div class="blk"><span class="t">9:00 – 12:30 PM</span><div class="blk-content"><span class="pill study">Study</span> Weakest subject of the week — give it your sharpest hours</div></div>
+        <div class="blk"><span class="t">1:30 – 5:00 PM</span><div class="blk-content"><span class="pill study">Study</span> Past papers or practicals revision</div></div>
+        <div class="blk"><span class="t">5:00 – 6:00 PM</span><div class="blk-content"><span class="pill rest">Walk</span> Cardio</div></div>
+        <div class="blk"><span class="t">6:00 – 8:00 PM</span><div class="blk-content"><span class="pill webdev">Web dev</span> Longer session — 2 hrs</div></div>
+        <div class="blk"><span class="t">8:00 PM+</span><div class="blk-content"><span class="pill rest">Relax</span> Full wind down — it's Friday</div></div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-dot" style="background:var(--accent3);"></div>
+        <div class="day-title">Saturday — theatre evening (lighter study day)</div>
+      </div>
+      <div class="day-body">
+        <div class="blk"><span class="t">6:00 – 7:00 AM</span><div class="blk-content"><span class="pill rest">Walk</span> Extended walk or light jog — active recovery</div></div>
+        <div class="blk"><span class="t">9:00 – 12:00 PM</span><div class="blk-content"><span class="pill study">Study</span> Revision only — no new topics today</div></div>
+        <div class="blk"><span class="t">1:00 – 1:30 PM</span><div class="blk-content"><span class="pill guitar">Guitar</span></div></div>
+        <div class="blk"><span class="t">1:30 – 5:00 PM</span><div class="blk-content"><span class="pill study">Study</span> Light reading, past papers, or practical prep</div></div>
+        <div class="blk"><span class="t">6:00 – 9:00 PM</span><div class="blk-content"><span class="pill theatre">Theatre</span> Acting session</div></div>
+        <div class="blk"><span class="t">9:00 PM+</span><div class="blk-content"><span class="pill rest">Rest</span> Dinner, wind down early</div></div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-dot" style="background:var(--text3);"></div>
+        <div class="day-title">Sunday — rest &amp; recharge</div>
+      </div>
+      <div class="day-body">
+        <div class="blk"><span class="t">Morning</span><div class="blk-content"><span class="pill rest">Rest</span> Sleep in, slow breakfast — no alarm</div></div>
+        <div class="blk"><span class="t">Late morning</span><div class="blk-content"><span class="pill guitar">Guitar</span> Free play — learn what you enjoy, no pressure</div></div>
+        <div class="blk"><span class="t">Afternoon</span><div class="blk-content"><span class="pill study">Study</span> Weekly review + plan the coming week (30 min only)</div></div>
+        <div class="blk"><span class="t">Afternoon</span><div class="blk-content"><span class="pill webdev">Web dev</span> Optional — 1 hr max if you feel like it</div></div>
+        <div class="blk"><span class="t">Evening</span><div class="blk-content"><span class="pill rest">Rest</span> Full rest — leisure, friends, film, whatever restores you</div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ASSIGNMENTS -->
+  <div id="assignments" class="section">
+
+    <div class="deadline-banner">
+      <span class="icon">⚡</span>
+      <span>Submission deadline: <strong>April 30, 2026</strong> — 19 days from today. Use Study Block 1 (9 AM–12 PM) exclusively for assignments until they're done.</span>
+    </div>
+
+    <div class="section-label" style="margin-bottom:0.5rem;">Assignment priority order</div>
+    <div class="day-card" style="margin-bottom:1.5rem;">
+      <div class="assign-row" style="background:var(--bg3);font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;">
+        <div>Dates</div><div>Assignment</div><div style="text-align:right;">Note</div>
+      </div>
+      <div class="assign-row">
+        <div class="assign-days">Apr 11–14</div>
+        <div>
+          <div class="assign-name">BCOC-131 · Financial Accounting</div>
+          <div style="font-size:11.5px;color:var(--text3);margin-top:2px;">Most time-consuming — journals, ledger, calculations</div>
+        </div>
+        <div class="assign-note">4 days</div>
+      </div>
+      <div class="assign-row">
+        <div class="assign-days">Apr 15–17</div>
+        <div>
+          <div class="assign-name">BCS-041 · Computer Networks</div>
+          <div style="font-size:11.5px;color:var(--text3);margin-top:2px;">Theory-heavy, needs focused writing</div>
+        </div>
+        <div class="assign-note">3 days</div>
+      </div>
+      <div class="assign-row">
+        <div class="assign-days">Apr 18–21</div>
+        <div>
+          <div class="assign-name">BCS-053 · Web Programming</div>
+          <div style="font-size:11.5px;color:var(--text3);margin-top:2px;">Overlaps with Udemy course — you're ahead here</div>
+        </div>
+        <div class="assign-note">4 days</div>
+      </div>
+      <div class="assign-row">
+        <div class="assign-days">Apr 22–24</div>
+        <div>
+          <div class="assign-name">BCSL-146 · OOP Java Lab</div>
+          <div style="font-size:11.5px;color:var(--text3);margin-top:2px;">Practical-based, shorter to complete</div>
+        </div>
+        <div class="assign-note">3 days</div>
+      </div>
+      <div class="assign-row">
+        <div class="assign-days">Apr 25–27</div>
+        <div>
+          <div class="assign-name">BCSL-147 · Web Programming Lab</div>
+          <div style="font-size:11.5px;color:var(--text3);margin-top:2px;">Fastest — your Udemy work gives a running start</div>
+        </div>
+        <div class="assign-note">3 days</div>
+      </div>
+      <div class="assign-row" style="border-bottom:none;">
+        <div class="assign-days" style="color:var(--accent);">Apr 28–30</div>
+        <div>
+          <div class="assign-name" style="color:var(--accent);">Buffer + submission</div>
+          <div style="font-size:11.5px;color:var(--text3);margin-top:2px;">Review all, print, submit — done ✓</div>
+        </div>
+        <div class="assign-note" style="color:var(--accent);">3 days</div>
+      </div>
+    </div>
+
+    <div class="section-label">Key tip</div>
+    <div class="info-box">
+      For <strong>BCSL-146 and BCSL-147</strong> (lab assignments) — look at what IGNOU's question asks and map it to something you've already built on Udemy. You'll save significant time and the quality will be better since it's real code you understand.<br><br>
+      After April 30, <strong>Block 1 switches fully back to exam prep</strong> and Phase 2 kicks in right on schedule. You're not losing any ground — just front-loading a sprint.
+    </div>
+
+    <div class="info-box" style="background:rgba(120,199,255,0.05);border-color:rgba(120,199,255,0.15);">
+      <strong style="color:var(--accent2);">MCS-206 already done ✓</strong> — one less thing to worry about. That's your toughest Sem 4 subject checked off the assignment list. Good head start.
+    </div>
+
+  </div>
+
+  <!-- STUDY -->
+  <div id="study" class="section">
+
+    <div class="section-label">Exam schedule</div>
+    <div class="exam-table" style="margin-bottom:2rem;">
+      <div class="exam-row">
+        <div class="exam-date">11 Jun — afternoon</div>
+        <div class="exam-name">MCS-206 · Object Oriented Programming using Java</div>
+        <div><span class="badge s4">Sem 4</span></div>
+      </div>
+      <div class="exam-row">
+        <div class="exam-date">12 Jun — morning</div>
+        <div class="exam-name">BCS-041 · Fundamentals of Computer Networks</div>
+        <div><span class="badge s4">Sem 4</span></div>
+      </div>
+      <div class="exam-row">
+        <div class="exam-date">13 Jun — afternoon</div>
+        <div class="exam-name">BCOC-131 · Financial Accounting</div>
+        <div><span class="badge s4">Sem 4</span></div>
+      </div>
+      <div class="exam-row">
+        <div class="exam-date">18 Jun — morning</div>
+        <div class="exam-name">BCS-111 · Computer Basics and PC Software</div>
+        <div><span class="badge bl">Backlog</span></div>
+      </div>
+      <div class="exam-row">
+        <div class="exam-date">25 Jun — morning</div>
+        <div class="exam-name">BCS-053 · Web Programming</div>
+        <div><span class="badge s4">Sem 4</span></div>
+      </div>
+    </div>
+
+    <div class="section-label">Study phases</div>
+    <div class="phase-grid">
+
+      <div class="phase-card blue">
+        <div class="phase-title">Phase 1 — Foundation · May 1 – May 10</div>
+        <div class="phase-body">
+          Cover all 5 exam subjects in light rotation. Don't go deep yet — just get familiar with structure and syllabus. Block 1 for MCS-206 and BCS-041 (hardest two). Block 2 for BCOC-131 and BCS-053. Saturday revision for BCS-111 — it's basics, easy to crack later.<br><br>
+          <strong>Practicals:</strong> Get MCSL204, MCSL205, BCSL135, MCSL209 scheduled and done at the centre ASAP. Book appointments this week.
+        </div>
+      </div>
+
+      <div class="phase-card green">
+        <div class="phase-title">Phase 2 — Intensive prep · May 11 – Jun 5</div>
+        <div class="phase-body">
+          One subject per week, deep focus.<br>
+          <strong>Week 1:</strong> MCS-206 — classes, inheritance, polymorphism, interfaces.<br>
+          <strong>Week 2:</strong> BCS-041 — OSI model, TCP/IP, routing protocols, subnetting.<br>
+          <strong>Week 3:</strong> BCOC-131 — journal, ledger, trial balance, P&amp;L, balance sheet.<br>
+          <strong>Week 4:</strong> All three in parallel, 1.5 hrs each per day. Do past papers every evening.
+        </div>
+      </div>
+
+      <div class="phase-card orange">
+        <div class="phase-title">Phase 3 — Final sprint · Jun 6 – 13</div>
+        <div class="phase-body">
+          <strong>Jun 6–10:</strong> Revision only. 1.5 hrs per subject per day. Past papers, key definitions, formulas only.<br>
+          <strong>Jun 11:</strong> MCS-206 exam. Evening — skim Networks notes lightly.<br>
+          <strong>Jun 12:</strong> BCS-041 exam. Evening — skim Accounts notes.<br>
+          <strong>Jun 13:</strong> BCOC-131 exam. Rest completely — you've earned it.
+        </div>
+      </div>
+
+      <div class="phase-card purple">
+        <div class="phase-title">Jun 14 – 17 · BCS-111 sprint (4 days)</div>
+        <div class="phase-body">
+          Computer basics — your easiest exam. Hardware, software, OS concepts, MS Office, number systems. 4 focused days is more than enough. Past papers + SLM reading. Don't overthink this one.
+        </div>
+      </div>
+
+      <div class="phase-card lime">
+        <div class="phase-title">Jun 19 – 24 · BCS-053 sprint (6 days)</div>
+        <div class="phase-body">
+          Web Programming — you're already ahead because of your full-stack Udemy course. Focus on theory exam format: HTML tags and structure, CSS properties, JavaScript basics, client-server model, HTTP concepts. Practice writing code on paper. Past papers are essential.
+        </div>
+      </div>
+
+      <div class="phase-card neutral">
+        <div class="phase-title">Post-exam · Jul – Aug · Clear remaining backlogs</div>
+        <div class="phase-body">
+          MCS201 (C &amp; Python), MCS203 (Operating Systems), MCS207 (DBMS), MCS208 (Data Structures), BCS131 (C++) — get these done for the next exam cycle. One subject every 10 days is sustainable. Fitness becomes the primary focus during this phase.
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- FITNESS -->
+  <div id="fitness" class="section">
+
+    <div class="info-box">
+      At <strong>92.5 kg / 5'9"</strong> you're targeting a lean, athletic build — think <strong>72–76 kg by late August</strong>. That's ~16–20 kg over 4.5 months (~1 kg/week), very achievable with consistent deficit + strength training. No gym needed — all bodyweight.
+    </div>
+
+    <div class="section-label">Weekly workout split</div>
+    <div class="workout-grid">
+      <div class="workout-card">
+        <div class="workout-day">Monday</div>
+        <div class="workout-type">Upper body</div>
+        <div class="workout-ex">Push-ups 3×15<br>Pike push-ups 3×10<br>Tricep dips 3×12<br>Plank 3×45s</div>
+      </div>
+      <div class="workout-card">
+        <div class="workout-day">Tuesday</div>
+        <div class="workout-type">Lower body</div>
+        <div class="workout-ex">Squats 4×20<br>Lunges 3×12 each<br>Glute bridge 3×15<br>Calf raises 3×25</div>
+      </div>
+      <div class="workout-card">
+        <div class="workout-day">Wednesday</div>
+        <div class="workout-type">HIIT · 20 min</div>
+        <div class="workout-ex">Burpees, jump squats, mountain climbers, high knees<br>30s on / 15s off circuit</div>
+      </div>
+      <div class="workout-card">
+        <div class="workout-day">Thursday</div>
+        <div class="workout-type">Core + upper</div>
+        <div class="workout-ex">Crunches 3×20<br>Leg raises 3×15<br>Superman hold 3×12<br>Diamond push-ups 3×10</div>
+      </div>
+      <div class="workout-card">
+        <div class="workout-day">Friday</div>
+        <div class="workout-type">Full body</div>
+        <div class="workout-ex">Pull-ups or rows 3×8<br>Squats 3×20<br>Push-ups 3×15<br>Burpees 3×10</div>
+      </div>
+      <div class="workout-card">
+        <div class="workout-day">Saturday</div>
+        <div class="workout-type">Active recovery</div>
+        <div class="workout-ex">45–60 min extended walk or light jog + stretching + mobility work</div>
+      </div>
+    </div>
+
+    <div class="section-label">Diet basics — no crash dieting</div>
+    <div class="phase-card green" style="margin-bottom:1.5rem;">
+      <div class="phase-body">
+        <strong>Target:</strong> ~1,900–2,100 kcal/day (your TDEE is ~2,500 active). ~500 kcal deficit = ~2 kg/month from diet alone, more from workouts.<br><br>
+        <strong>Eat more:</strong> Rice / roti + dal + sabzi, eggs (3–4/day), curd, seasonal fruits, nuts, 3+ litres water daily.<br>
+        <strong>Cut out:</strong> Maida, fried snacks, cold drinks, sugar in chai, late-night eating.<br>
+        <strong>Protein goal:</strong> ~130–150g/day — eggs, paneer, dal, chicken or fish if non-veg.<br>
+        <strong>Key rule:</strong> Finish dinner by 8:30 PM and don't eat after. This single habit moves the needle significantly.
+      </div>
+    </div>
+
+    <div class="section-label">Milestones</div>
+    <div class="day-card">
+      <div class="milestone-row">
+        <div class="milestone-date">End of May</div>
+        <div class="milestone-kg">~87 kg</div>
+        <div class="milestone-note">Clothes fitting noticeably looser, stamina clearly up, walk getting easier</div>
+      </div>
+      <div class="milestone-row">
+        <div class="milestone-date">End of June</div>
+        <div class="milestone-kg">~83 kg</div>
+        <div class="milestone-note">Post-exams. Walk becoming a jog, visible muscle definition starting</div>
+      </div>
+      <div class="milestone-row">
+        <div class="milestone-date">End of August</div>
+        <div class="milestone-kg">~75 kg</div>
+        <div class="milestone-note">Lean and athletic — soccer player build territory ✓</div>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<script>
+  function switchTab(id, btn) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
