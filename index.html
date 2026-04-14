@@ -203,8 +203,16 @@
     color: var(--text2);
   }
 
-  /* Legend */
-  .legend {
+  .sub-tabs { display:flex; gap:6px; margin-bottom:1.25rem; flex-wrap:wrap; }
+  .sub-btn { font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; font-weight:500; color:var(--text3); background:var(--card); border:1px solid var(--border); border-radius:var(--radius-sm); padding:5px 14px; cursor:pointer; transition:all 0.15s; }
+  .sub-btn:hover { color:var(--text2); border-color:var(--text3); }
+  .sub-btn.active { color:var(--bg); background:var(--accent); border-color:var(--accent); }
+  .sub-section { display:none; }
+  .sub-section.active { display:block; }
+  .phase-tag { display:inline-block; padding:2px 8px; border-radius:20px; font-size:10.5px; font-weight:600; font-family:'DM Mono',monospace; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.5rem; }
+  .phase-tag.jun { background:var(--study); color:var(--study-text); }
+  .phase-tag.dec { background:var(--webdev); color:var(--webdev-text); }
+  .phase-tag.bl  { background:var(--theatre); color:var(--theatre-text); }
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
@@ -461,9 +469,9 @@
         <div style="font-size:12px;color:var(--text3);margin-top:4px;">BCA Sem 4 · IGNOU · Apr – Aug 2026</div>
       </div>
       <div class="meta">
-        Exams: Jun 11–25, 2026<br>
+        Jun exams: Jun 11–25 · Dec exams: Dec 2026<br>
         Assignments due: Apr 30, 2026<br>
-        Fitness goal: ~75 kg by Aug
+        Fitness goal: ~72–75 kg by Dec
       </div>
     </div>
     <nav>
@@ -651,85 +659,173 @@
   <!-- STUDY -->
   <div id="study" class="section">
 
-    <div class="section-label">Exam schedule</div>
-    <div class="exam-table" style="margin-bottom:2rem;">
-      <div class="exam-row">
-        <div class="exam-date">11 Jun — afternoon</div>
-        <div class="exam-name">MCS-206 · Object Oriented Programming using Java</div>
-        <div><span class="badge s4">Sem 4</span></div>
-      </div>
-      <div class="exam-row">
-        <div class="exam-date">12 Jun — morning</div>
-        <div class="exam-name">BCS-041 · Fundamentals of Computer Networks</div>
-        <div><span class="badge s4">Sem 4</span></div>
-      </div>
-      <div class="exam-row">
-        <div class="exam-date">13 Jun — afternoon</div>
-        <div class="exam-name">BCOC-131 · Financial Accounting</div>
-        <div><span class="badge s4">Sem 4</span></div>
-      </div>
-      <div class="exam-row">
-        <div class="exam-date">18 Jun — morning</div>
-        <div class="exam-name">BCS-111 · Computer Basics and PC Software</div>
-        <div><span class="badge bl">Backlog</span></div>
-      </div>
-      <div class="exam-row">
-        <div class="exam-date">25 Jun — morning</div>
-        <div class="exam-name">BCS-053 · Web Programming</div>
-        <div><span class="badge s4">Sem 4</span></div>
-      </div>
+    <div class="sub-tabs">
+      <button class="sub-btn active" onclick="switchSub('jun',this)">June 2026 — Sem 4 + Backlog</button>
+      <button class="sub-btn" onclick="switchSub('dec',this)">December 2026 — Sem 5 + Backlogs</button>
     </div>
 
-    <div class="section-label">Study phases</div>
-    <div class="phase-grid">
+    <!-- JUNE -->
+    <div id="jun" class="sub-section active">
 
-      <div class="phase-card blue">
-        <div class="phase-title">Phase 1 — Foundation · May 1 – May 10</div>
-        <div class="phase-body">
-          Cover all 5 exam subjects in light rotation. Don't go deep yet — just get familiar with structure and syllabus. Block 1 for MCS-206 and BCS-041 (hardest two). Block 2 for BCOC-131 and BCS-053. Saturday revision for BCS-111 — it's basics, easy to crack later.<br><br>
-          <strong>Practicals:</strong> Get MCSL204, MCSL205, BCSL135, MCSL209 scheduled and done at the centre ASAP. Book appointments this week.
+      <div class="section-label">Exam schedule</div>
+      <div class="exam-table" style="margin-bottom:2rem;">
+        <div class="exam-row">
+          <div class="exam-date">11 Jun — afternoon</div>
+          <div class="exam-name">MCS-206 · Object Oriented Programming using Java</div>
+          <div><span class="badge s4">Sem 4</span></div>
+        </div>
+        <div class="exam-row">
+          <div class="exam-date">12 Jun — morning</div>
+          <div class="exam-name">BCS-041 · Fundamentals of Computer Networks</div>
+          <div><span class="badge s4">Sem 4</span></div>
+        </div>
+        <div class="exam-row">
+          <div class="exam-date">13 Jun — afternoon</div>
+          <div class="exam-name">BCOC-131 · Financial Accounting</div>
+          <div><span class="badge s4">Sem 4</span></div>
+        </div>
+        <div class="exam-row">
+          <div class="exam-date">18 Jun — morning</div>
+          <div class="exam-name">BCS-111 · Computer Basics and PC Software</div>
+          <div><span class="badge bl">Backlog</span></div>
+        </div>
+        <div class="exam-row">
+          <div class="exam-date">25 Jun — morning</div>
+          <div class="exam-name">BCS-053 · Web Programming</div>
+          <div><span class="badge s4">Sem 4</span></div>
         </div>
       </div>
 
-      <div class="phase-card green">
-        <div class="phase-title">Phase 2 — Intensive prep · May 11 – Jun 5</div>
-        <div class="phase-body">
-          One subject per week, deep focus.<br>
-          <strong>Week 1:</strong> MCS-206 — classes, inheritance, polymorphism, interfaces.<br>
-          <strong>Week 2:</strong> BCS-041 — OSI model, TCP/IP, routing protocols, subnetting.<br>
-          <strong>Week 3:</strong> BCOC-131 — journal, ledger, trial balance, P&amp;L, balance sheet.<br>
-          <strong>Week 4:</strong> All three in parallel, 1.5 hrs each per day. Do past papers every evening.
+      <div class="section-label">Study phases</div>
+      <div class="phase-grid">
+        <div class="phase-card blue">
+          <div class="phase-title">Phase 1 — Foundation · May 1 – May 10</div>
+          <div class="phase-body">
+            Cover all 5 exam subjects in light rotation. Don't go deep yet — just get familiar with structure and syllabus. Block 1 for MCS-206 and BCS-041 (hardest two). Block 2 for BCOC-131 and BCS-053. Saturday revision for BCS-111 — it's basics, easy to crack later.<br><br>
+            <strong>Practicals:</strong> Get MCSL204, MCSL205, BCSL135, MCSL209 scheduled and done at the centre ASAP. Book appointments this week.
+          </div>
+        </div>
+        <div class="phase-card green">
+          <div class="phase-title">Phase 2 — Intensive prep · May 11 – Jun 5</div>
+          <div class="phase-body">
+            One subject per week, deep focus.<br>
+            <strong>Week 1:</strong> MCS-206 — classes, inheritance, polymorphism, interfaces.<br>
+            <strong>Week 2:</strong> BCS-041 — OSI model, TCP/IP, routing protocols, subnetting.<br>
+            <strong>Week 3:</strong> BCOC-131 — journal, ledger, trial balance, P&amp;L, balance sheet.<br>
+            <strong>Week 4:</strong> All three in parallel, 1.5 hrs each per day. Do past papers every evening.
+          </div>
+        </div>
+        <div class="phase-card orange">
+          <div class="phase-title">Phase 3 — Final sprint · Jun 6 – 13</div>
+          <div class="phase-body">
+            <strong>Jun 6–10:</strong> Revision only. 1.5 hrs per subject per day. Past papers, key definitions, formulas only.<br>
+            <strong>Jun 11:</strong> MCS-206 exam. Evening — skim Networks notes lightly.<br>
+            <strong>Jun 12:</strong> BCS-041 exam. Evening — skim Accounts notes.<br>
+            <strong>Jun 13:</strong> BCOC-131 exam. Rest completely — you've earned it.
+          </div>
+        </div>
+        <div class="phase-card purple">
+          <div class="phase-title">Jun 14 – 17 · BCS-111 sprint (4 days)</div>
+          <div class="phase-body">
+            Computer basics — your easiest exam. Hardware, software, OS concepts, MS Office, number systems. 4 focused days is more than enough. Past papers + SLM reading. Don't overthink this one.
+          </div>
+        </div>
+        <div class="phase-card lime">
+          <div class="phase-title">Jun 19 – 24 · BCS-053 sprint (6 days)</div>
+          <div class="phase-body">
+            Web Programming — you're already ahead because of your full-stack Udemy course. Focus on theory exam format: HTML, CSS, JavaScript basics, client-server model, HTTP. Practice writing code on paper. Past papers are essential.
+          </div>
         </div>
       </div>
 
-      <div class="phase-card orange">
-        <div class="phase-title">Phase 3 — Final sprint · Jun 6 – 13</div>
-        <div class="phase-body">
-          <strong>Jun 6–10:</strong> Revision only. 1.5 hrs per subject per day. Past papers, key definitions, formulas only.<br>
-          <strong>Jun 11:</strong> MCS-206 exam. Evening — skim Networks notes lightly.<br>
-          <strong>Jun 12:</strong> BCS-041 exam. Evening — skim Accounts notes.<br>
-          <strong>Jun 13:</strong> BCOC-131 exam. Rest completely — you've earned it.
+    </div>
+
+    <!-- DECEMBER -->
+    <div id="dec" class="sub-section">
+
+      <div class="info-box" style="margin-bottom:1.5rem;">
+        <strong>8 subjects total this cycle.</strong> 5 Sem 5 subjects + 3 carefully chosen backlogs. MCS207 (DBMS) and MCS208 (Data Structures) are deliberately left out — too heavy to pair with Algorithm Design. They go in the next cycle.
+      </div>
+
+      <div class="section-label">December exam subjects</div>
+      <div class="exam-table" style="margin-bottom:2rem;">
+        <div class="exam-row">
+          <div class="exam-date">Sem 5</div>
+          <div class="exam-name">BCS-151 · Introduction to Software Engineering</div>
+          <div><span class="badge s4" style="background:var(--webdev);color:var(--webdev-text);">Sem 5</span></div>
+        </div>
+        <div class="exam-row">
+          <div class="exam-date">Sem 5</div>
+          <div class="exam-name">BCS-042 · Introduction to Algorithm Design</div>
+          <div><span class="badge s4" style="background:var(--webdev);color:var(--webdev-text);">Sem 5</span></div>
+        </div>
+        <div class="exam-row">
+          <div class="exam-date">Sem 5</div>
+          <div class="exam-name">BCOS-184 · E-Commerce</div>
+          <div><span class="badge s4" style="background:var(--webdev);color:var(--webdev-text);">Sem 5</span></div>
+        </div>
+        <div class="exam-row">
+          <div class="exam-date">Sem 5</div>
+          <div class="exam-name">MSEI-023 · Cyber Security</div>
+          <div><span class="badge s4" style="background:var(--webdev);color:var(--webdev-text);">Sem 5</span></div>
+        </div>
+        <div class="exam-row">
+          <div class="exam-date">Sem 5</div>
+          <div class="exam-name">BECS-184 · Data Analysis</div>
+          <div><span class="badge s4" style="background:var(--webdev);color:var(--webdev-text);">Sem 5</span></div>
+        </div>
+        <div class="exam-row">
+          <div class="exam-date">Backlog</div>
+          <div class="exam-name">MCS-201 · Programming in C and Python</div>
+          <div><span class="badge bl">Backlog</span></div>
+        </div>
+        <div class="exam-row">
+          <div class="exam-date">Backlog</div>
+          <div class="exam-name">BCS-131 · Programming in C++</div>
+          <div><span class="badge bl">Backlog</span></div>
+        </div>
+        <div class="exam-row">
+          <div class="exam-date">Backlog</div>
+          <div class="exam-name">MCS-203 · Operating Systems</div>
+          <div><span class="badge bl">Backlog</span></div>
         </div>
       </div>
 
-      <div class="phase-card purple">
-        <div class="phase-title">Jun 14 – 17 · BCS-111 sprint (4 days)</div>
-        <div class="phase-body">
-          Computer basics — your easiest exam. Hardware, software, OS concepts, MS Office, number systems. 4 focused days is more than enough. Past papers + SLM reading. Don't overthink this one.
-        </div>
+      <div class="info-box" style="background:rgba(255,179,71,0.05);border-color:rgba(255,179,71,0.2);margin-bottom:1.5rem;">
+        <strong style="color:var(--accent3);">Practicals for Sem 5:</strong> BCSL-159 (Algorithm Design Lab) needs to be done at the centre. Schedule this between August and October — don't leave it for November.
       </div>
 
-      <div class="phase-card lime">
-        <div class="phase-title">Jun 19 – 24 · BCS-053 sprint (6 days)</div>
-        <div class="phase-body">
-          Web Programming — you're already ahead because of your full-stack Udemy course. Focus on theory exam format: HTML tags and structure, CSS properties, JavaScript basics, client-server model, HTTP concepts. Practice writing code on paper. Past papers are essential.
+      <div class="section-label">December study phases</div>
+      <div class="phase-grid">
+        <div class="phase-card blue">
+          <div class="phase-title">Phase 1 — Post-June recovery + foundation · Jul 1 – Aug 15</div>
+          <div class="phase-body">
+            Exams are done, take a week off first. Then start Sem 5 SLM reading in light rotation — 1 subject per day, just getting familiar. Simultaneously clear MCS207 and MCS208 theory revision since they're NOT in this exam cycle but you need to prep them for a future one.<br><br>
+            <strong>Backlog subjects this phase:</strong> Start MCS-201 (C &amp; Python). It's familiar territory from Sem 2 — should be quick to cover.
+          </div>
         </div>
-      </div>
-
-      <div class="phase-card neutral">
-        <div class="phase-title">Post-exam · Jul – Aug · Clear remaining backlogs</div>
-        <div class="phase-body">
-          MCS201 (C &amp; Python), MCS203 (Operating Systems), MCS207 (DBMS), MCS208 (Data Structures), BCS131 (C++) — get these done for the next exam cycle. One subject every 10 days is sustainable. Fitness becomes the primary focus during this phase.
+        <div class="phase-card green">
+          <div class="phase-title">Phase 2 — Intensive · Aug 16 – Oct 31</div>
+          <div class="phase-body">
+            Deep study begins. Two subjects in parallel per week.<br>
+            <strong>Aug–Sep:</strong> BCS-151 (Software Engg) + BCS-042 (Algorithm Design) — pair these, they complement each other.<br>
+            <strong>Sep–Oct:</strong> MSEI-023 (Cyber Security) + BCOS-184 (E-Commerce) — lighter conceptual subjects, faster to cover.<br>
+            <strong>Backlogs:</strong> BCS-131 (C++) in September — your Java OOP knowledge carries directly into this. MCS-203 (OS) in October.
+          </div>
+        </div>
+        <div class="phase-card orange">
+          <div class="phase-title">Phase 3 — Final rotation · Nov 1 – Nov 30</div>
+          <div class="phase-body">
+            All 8 subjects in rotation. 1.5 hrs each per day in a fixed cycle. BECS-184 (Data Analysis) gets focused attention this month — it involves stats and data concepts that need practice.<br><br>
+            Past papers for every subject. Write answers on paper — IGNOU is handwritten. Time yourself.
+          </div>
+        </div>
+        <div class="phase-card purple">
+          <div class="phase-title">Phase 4 — Final sprint · Dec 1 – exam start</div>
+          <div class="phase-body">
+            Revision only. No new material. Key formulas, definitions, diagrams. Exam-day logistics sorted: admit card, centre location, stationery.<br><br>
+            <strong>Backlogs to defer:</strong> MCS-207 (DBMS) and MCS-208 (Data Structures) — hold these for the June 2027 cycle when you can give them proper attention.
+          </div>
         </div>
       </div>
 
@@ -741,70 +837,175 @@
   <div id="fitness" class="section">
 
     <div class="info-box">
-      At <strong>92.5 kg / 5'9"</strong> you're targeting a lean, athletic build — think <strong>72–76 kg by late August</strong>. That's ~16–20 kg over 4.5 months (~1 kg/week), very achievable with consistent deficit + strength training. No gym needed — all bodyweight.
+      At <strong>92.5 kg / 5'9"</strong> the real target is <strong>~72–75 kg by December 2026</strong> — a lean, athletic build. August is the strong intermediate checkpoint (~78–82 kg). The workout plan evolves across 3 phases as your strength builds. All bodyweight — no gym needed.
     </div>
 
-    <div class="section-label">Weekly workout split</div>
-    <div class="workout-grid">
-      <div class="workout-card">
-        <div class="workout-day">Monday</div>
-        <div class="workout-type">Upper body</div>
-        <div class="workout-ex">Push-ups 3×15<br>Pike push-ups 3×10<br>Tricep dips 3×12<br>Plank 3×45s</div>
+    <div class="sub-tabs">
+      <button class="sub-btn active" onclick="switchSub('f1',this)">Phase 1 · Apr–Jun</button>
+      <button class="sub-btn" onclick="switchSub('f2',this)">Phase 2 · Jul–Sep</button>
+      <button class="sub-btn" onclick="switchSub('f3',this)">Phase 3 · Oct–Dec</button>
+    </div>
+
+    <!-- PHASE 1 -->
+    <div id="f1" class="sub-section active">
+      <div class="phase-card blue" style="margin-bottom:1rem;">
+        <div class="phase-title">Building the base — incline to floor transition</div>
+        <div class="phase-body">Start with incline pushups (hands on table/chair). Move to floor pushups when you can do 3×12 incline cleanly. Don't rush — form over reps always. By end of June you should be hitting proper floor pushups consistently.</div>
       </div>
-      <div class="workout-card">
-        <div class="workout-day">Tuesday</div>
-        <div class="workout-type">Lower body</div>
-        <div class="workout-ex">Squats 4×20<br>Lunges 3×12 each<br>Glute bridge 3×15<br>Calf raises 3×25</div>
+      <div class="workout-grid">
+        <div class="workout-card">
+          <div class="workout-day">Monday</div>
+          <div class="workout-type">Upper body</div>
+          <div class="workout-ex">Incline push-ups 3×12<br>Pike push-ups 3×8<br>Tricep dips 3×10<br>Plank 3×30s</div>
+        </div>
+        <div class="workout-card">
+          <div class="workout-day">Tuesday</div>
+          <div class="workout-type">Lower body</div>
+          <div class="workout-ex">Squats 4×20<br>Lunges 3×10 each<br>Glute bridge 3×15<br>Calf raises 3×20</div>
+        </div>
+        <div class="workout-card">
+          <div class="workout-day">Wednesday</div>
+          <div class="workout-type">HIIT · 20 min</div>
+          <div class="workout-ex">Burpees, jump squats, mountain climbers, high knees<br>30s on / 15s off</div>
+        </div>
+        <div class="workout-card">
+          <div class="workout-day">Thursday</div>
+          <div class="workout-type">Core + upper</div>
+          <div class="workout-ex">Crunches 3×20<br>Leg raises 3×12<br>Superman hold 3×10<br>Incline push-ups 3×10</div>
+        </div>
+        <div class="workout-card">
+          <div class="workout-day">Friday</div>
+          <div class="workout-type">Full body</div>
+          <div class="workout-ex">Incline push-ups 3×12<br>Squats 3×20<br>Glute bridge 3×15<br>Burpees 3×8</div>
+        </div>
+        <div class="workout-card">
+          <div class="workout-day">Saturday</div>
+          <div class="workout-type">Active recovery</div>
+          <div class="workout-ex">45–60 min walk or light jog + stretching + mobility work</div>
+        </div>
       </div>
-      <div class="workout-card">
-        <div class="workout-day">Wednesday</div>
-        <div class="workout-type">HIIT · 20 min</div>
-        <div class="workout-ex">Burpees, jump squats, mountain climbers, high knees<br>30s on / 15s off circuit</div>
-      </div>
-      <div class="workout-card">
-        <div class="workout-day">Thursday</div>
-        <div class="workout-type">Core + upper</div>
-        <div class="workout-ex">Crunches 3×20<br>Leg raises 3×15<br>Superman hold 3×12<br>Diamond push-ups 3×10</div>
-      </div>
-      <div class="workout-card">
-        <div class="workout-day">Friday</div>
-        <div class="workout-type">Full body</div>
-        <div class="workout-ex">Pull-ups or rows 3×8<br>Squats 3×20<br>Push-ups 3×15<br>Burpees 3×10</div>
-      </div>
-      <div class="workout-card">
-        <div class="workout-day">Saturday</div>
-        <div class="workout-type">Active recovery</div>
-        <div class="workout-ex">45–60 min extended walk or light jog + stretching + mobility work</div>
+      <div class="info-box" style="margin-top:0.5rem;">
+        <strong>Grease the groove:</strong> Every time you pass a spot in your house, do 3–5 clean pushups. 6–8 times a day. This alone will double your rep count within 3 weeks.
       </div>
     </div>
 
-    <div class="section-label">Diet basics — no crash dieting</div>
+    <!-- PHASE 2 -->
+    <div id="f2" class="sub-section">
+      <div class="phase-card green" style="margin-bottom:1rem;">
+        <div class="phase-title">Intermediate — full floor work, adding volume</div>
+        <div class="phase-body">By July you should be doing proper floor pushups. Increase reps and sets progressively. Introduce jogging intervals into your walks — start with 1 min jog / 2 min walk, build to continuous 20 min jog by September. This is where visible body composition changes accelerate.</div>
+      </div>
+      <div class="workout-grid">
+        <div class="workout-card">
+          <div class="workout-day">Monday</div>
+          <div class="workout-type">Upper body</div>
+          <div class="workout-ex">Push-ups 4×15<br>Wide push-ups 3×12<br>Pike push-ups 3×12<br>Plank 3×45s</div>
+        </div>
+        <div class="workout-card">
+          <div class="workout-day">Tuesday</div>
+          <div class="workout-type">Lower body</div>
+          <div class="workout-ex">Jump squats 3×15<br>Bulgarian split squats 3×10<br>Glute bridge 3×20<br>Calf raises 3×25</div>
+        </div>
+        <div class="workout-card">
+          <div class="workout-day">Wednesday</div>
+          <div class="workout-type">Run + HIIT</div>
+          <div class="workout-ex">20 min jog (intervals)<br>+ 15 min HIIT circuit<br>Burpees, mountain climbers, high knees</div>
+        </div>
+        <div class="workout-card">
+          <div class="workout-day">Thursday</div>
+          <div class="workout-type">Core + upper</div>
+          <div class="workout-ex">Hollow body hold 3×20s<br>Leg raises 3×15<br>Diamond push-ups 3×12<br>Tricep dips 3×15</div>
+        </div>
+        <div class="workout-card">
+          <div class="workout-day">Friday</div>
+          <div class="workout-type">Full body</div>
+          <div class="workout-ex">Pull-ups or rows 3×8<br>Push-ups 4×15<br>Squats 4×20<br>Burpees 3×12</div>
+        </div>
+        <div class="workout-card">
+          <div class="workout-day">Saturday</div>
+          <div class="workout-type">Long run</div>
+          <div class="workout-ex">30–40 min continuous jog by end of Sep + stretching</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE 3 -->
+    <div id="f3" class="sub-section">
+      <div class="phase-card orange" style="margin-bottom:1rem;">
+        <div class="phase-title">Advanced — lean finishing, strength definition</div>
+        <div class="phase-body">Oct–Dec is where the physique really sharpens. You're strong enough now to add harder variations. Running should be consistent — 3–4 km runs, 3x a week. Diet discipline in these last 3 months is the final differentiator between "fit" and "athletic."</div>
+      </div>
+      <div class="workout-grid">
+        <div class="workout-card">
+          <div class="workout-day">Monday</div>
+          <div class="workout-type">Upper body</div>
+          <div class="workout-ex">Archer push-ups 3×8<br>Pike push-ups 4×12<br>Dips 4×15<br>Plank 3×60s</div>
+        </div>
+        <div class="workout-card">
+          <div class="workout-day">Tuesday</div>
+          <div class="workout-type">Run</div>
+          <div class="workout-ex">3–4 km continuous run<br>Steady pace, not sprint<br>Build to 5 km by December</div>
+        </div>
+        <div class="workout-card">
+          <div class="workout-day">Wednesday</div>
+          <div class="workout-type">Full body strength</div>
+          <div class="workout-ex">Pull-ups 4×8<br>Push-ups 4×20<br>Jump squats 4×15<br>Burpees 4×12</div>
+        </div>
+        <div class="workout-card">
+          <div class="workout-day">Thursday</div>
+          <div class="workout-type">Core</div>
+          <div class="workout-ex">Dragon flag (progress)<br>Hanging leg raises 3×12<br>Ab wheel or rollouts 3×10<br>Plank variations 3×60s</div>
+        </div>
+        <div class="workout-card">
+          <div class="workout-day">Friday</div>
+          <div class="workout-type">Run + HIIT</div>
+          <div class="workout-ex">2 km run warm-up<br>+ 20 min HIIT circuit<br>Max effort</div>
+        </div>
+        <div class="workout-card">
+          <div class="workout-day">Saturday</div>
+          <div class="workout-type">Active recovery</div>
+          <div class="workout-ex">Long walk + deep stretch + mobility. No intensity — let the body repair.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-top:1.5rem;">Diet basics — consistent all the way through</div>
     <div class="phase-card green" style="margin-bottom:1.5rem;">
       <div class="phase-body">
-        <strong>Target:</strong> ~1,900–2,100 kcal/day (your TDEE is ~2,500 active). ~500 kcal deficit = ~2 kg/month from diet alone, more from workouts.<br><br>
+        <strong>Target:</strong> ~1,900–2,100 kcal/day. ~500 kcal deficit = ~2 kg/month from diet alone, more from workouts.<br><br>
         <strong>Eat more:</strong> Rice / roti + dal + sabzi, eggs (3–4/day), curd, seasonal fruits, nuts, 3+ litres water daily.<br>
         <strong>Cut out:</strong> Maida, fried snacks, cold drinks, sugar in chai, late-night eating.<br>
         <strong>Protein goal:</strong> ~130–150g/day — eggs, paneer, dal, chicken or fish if non-veg.<br>
-        <strong>Key rule:</strong> Finish dinner by 8:30 PM and don't eat after. This single habit moves the needle significantly.
+        <strong>Key rule:</strong> Finish dinner by 8:30 PM. Don't eat after. This single habit moves the needle more than any single workout.
       </div>
     </div>
 
-    <div class="section-label">Milestones</div>
+    <div class="section-label">Milestones — Apr to Dec</div>
     <div class="day-card">
       <div class="milestone-row">
         <div class="milestone-date">End of May</div>
         <div class="milestone-kg">~87 kg</div>
-        <div class="milestone-note">Clothes fitting noticeably looser, stamina clearly up, walk getting easier</div>
+        <div class="milestone-note">Clothes fitting looser, stamina clearly up, incline pushups becoming easy</div>
       </div>
       <div class="milestone-row">
         <div class="milestone-date">End of June</div>
-        <div class="milestone-kg">~83 kg</div>
-        <div class="milestone-note">Post-exams. Walk becoming a jog, visible muscle definition starting</div>
+        <div class="milestone-kg">~83–84 kg</div>
+        <div class="milestone-note">Post-exams. Floor pushups consistent, walk turning into jog intervals</div>
       </div>
       <div class="milestone-row">
         <div class="milestone-date">End of August</div>
-        <div class="milestone-kg">~75 kg</div>
-        <div class="milestone-note">Lean and athletic — soccer player build territory ✓</div>
+        <div class="milestone-kg">~78–80 kg</div>
+        <div class="milestone-note">Noticeably lean face and upper body, jogging 20 min continuous, people notice</div>
+      </div>
+      <div class="milestone-row">
+        <div class="milestone-date">End of October</div>
+        <div class="milestone-kg">~75–77 kg</div>
+        <div class="milestone-note">Running 3–4 km, visible upper body definition, nearly there</div>
+      </div>
+      <div class="milestone-row">
+        <div class="milestone-date">End of December</div>
+        <div class="milestone-kg">~72–75 kg</div>
+        <div class="milestone-note">Lean athletic build — soccer player physique achieved ✓</div>
       </div>
     </div>
 
@@ -817,6 +1018,13 @@
     document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
     document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
     document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+  function switchSub(id, btn) {
+    const parent = btn.closest('.section');
+    parent.querySelectorAll('.sub-section').forEach(s => s.classList.remove('active'));
+    btn.closest('.sub-tabs').querySelectorAll('.sub-btn').forEach(b => b.classList.remove('active'));
+    parent.querySelector('#' + id).classList.add('active');
     btn.classList.add('active');
   }
 </script>
