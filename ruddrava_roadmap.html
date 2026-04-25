@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ruddrava's Roadmap</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #111118;
+    --card: #16161f;
+    --border: #2a2a3a;
+    --gold: #c9a84c;
+    --gold-light: #e4c97e;
+    --blue: #4a90d9;
+    --green: #52c97a;
+    --red: #e05c5c;
+    --text: #e8e8f0;
+    --muted: #7a7a9a;
+    --accent: #7b61ff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10,10,15,0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+    height: 64px;
+    gap: 2rem;
+  }
+
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .nav-tabs {
+    display: flex;
+    gap: 0.25rem;
+    margin-left: auto;
+  }
+
+  .tab-btn {
+    background: none;
+    border: 1px solid transparent;
+    color: var(--muted);
+    padding: 0.5rem 1.1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .tab-btn:hover { color: var(--text); border-color: var(--border); }
+
+  .tab-btn.active {
+    background: var(--gold);
+    color: #0a0a0f;
+    border-color: var(--gold);
+    font-weight: 600;
+  }
+
+  /* PAGES */
+  .page { display: none; padding: 3rem 2rem 5rem; max-width: 900px; margin: 0 auto; }
+  .page.active { display: block; animation: fadeUp 0.4s ease; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* PAGE HEADER */
+  .page-header {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .page-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+
+  .page-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    line-height: 1.15;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+  }
+
+  .page-header p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 600px;
+  }
+
+  /* SECTION TITLES */
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    color: var(--gold-light);
+    margin-bottom: 1.25rem;
+    margin-top: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* INFO CARD */
+  .info-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+
+  .info-card:hover { border-color: var(--gold); }
+
+  .info-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: var(--gold);
+    border-radius: 3px 0 0 3px;
+  }
+
+  .info-card.blue::before { background: var(--blue); }
+  .info-card.green::before { background: var(--green); }
+  .info-card.red::before { background: var(--red); }
+  .info-card.purple::before { background: var(--accent); }
+
+  .card-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    margin-bottom: 0.35rem;
+  }
+
+  .info-card.blue .card-label { color: var(--blue); }
+  .info-card.green .card-label { color: var(--green); }
+  .info-card.red .card-label { color: var(--red); }
+  .info-card.purple .card-label { color: var(--accent); }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+
+  .card-body {
+    color: var(--muted);
+    font-size: 0.875rem;
+    line-height: 1.65;
+  }
+
+  .card-body strong { color: var(--text); font-weight: 500; }
+
+  /* GRID */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 600px) { .grid-2 { grid-template-columns: 1fr; } }
+
+  /* TIMELINE */
+  .timeline { position: relative; padding-left: 2rem; }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.65rem;
+    top: 0.5rem;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 1.5rem;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -1.7rem;
+    top: 0.35rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--bg);
+    box-shadow: 0 0 0 2px var(--gold);
+  }
+
+  .timeline-item.blue::before { background: var(--blue); box-shadow: 0 0 0 2px var(--blue); }
+  .timeline-item.green::before { background: var(--green); box-shadow: 0 0 0 2px var(--green); }
+  .timeline-item.purple::before { background: var(--accent); box-shadow: 0 0 0 2px var(--accent); }
+
+  .tl-phase {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.2rem;
+  }
+
+  .timeline-item.blue .tl-phase { color: var(--blue); }
+  .timeline-item.green .tl-phase { color: var(--green); }
+  .timeline-item.purple .tl-phase { color: var(--accent); }
+
+  .tl-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+  }
+
+  .tl-body {
+    color: var(--muted);
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  .tl-body strong { color: var(--text); font-weight: 500; }
+
+  /* PILL TAGS */
+  .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.6rem; }
+
+  .tag {
+    font-size: 0.72rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    font-weight: 500;
+    border: 1px solid;
+  }
+
+  .tag-gold { color: var(--gold); border-color: rgba(201,168,76,0.3); background: rgba(201,168,76,0.08); }
+  .tag-blue { color: var(--blue); border-color: rgba(74,144,217,0.3); background: rgba(74,144,217,0.08); }
+  .tag-green { color: var(--green); border-color: rgba(82,201,122,0.3); background: rgba(82,201,122,0.08); }
+  .tag-purple { color: var(--accent); border-color: rgba(123,97,255,0.3); background: rgba(123,97,255,0.08); }
+
+  /* HIGHLIGHT BOX */
+  .highlight {
+    background: rgba(201,168,76,0.07);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 10px;
+    padding: 1.1rem 1.4rem;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  .highlight strong { color: var(--gold-light); }
+  .highlight.blue-hl {
+    background: rgba(74,144,217,0.07);
+    border-color: rgba(74,144,217,0.25);
+  }
+  .highlight.blue-hl strong { color: var(--blue); }
+
+  /* STAT CHIPS */
+  .stats { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 1rem 0; }
+
+  .stat {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    text-align: center;
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    color: var(--gold);
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 0.7rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* STEP LIST */
+  .steps { counter-reset: step-counter; }
+
+  .step {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    align-items: flex-start;
+  }
+
+  .step-num {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: #0a0a0f;
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .step-content { flex: 1; }
+  .step-title { font-weight: 600; font-size: 0.9rem; color: var(--text); margin-bottom: 0.2rem; }
+  .step-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.55; }
+
+  /* DIVIDER */
+  hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+  /* ALERT */
+  .alert {
+    background: rgba(82,201,122,0.08);
+    border: 1px solid rgba(82,201,122,0.3);
+    border-radius: 10px;
+    padding: 1rem 1.2rem;
+    font-size: 0.85rem;
+    color: var(--green);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+
+  .alert-warn {
+    background: rgba(201,168,76,0.08);
+    border-color: rgba(201,168,76,0.3);
+    color: var(--gold-light);
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">রুদ্র's Roadmap</div>
+  <div class="nav-tabs">
+    <button class="tab-btn active" onclick="showPage('sntcssc')">SNTCSSC</button>
+    <button class="tab-btn" onclick="showPage('entrance')">WBJECA & NIMCET</button>
+    <button class="tab-btn" onclick="showPage('career')">Career Path</button>
+  </div>
+</nav>
+
+<!-- PAGE 1: SNTCSSC -->
+<div class="page active" id="page-sntcssc">
+  <div class="page-header">
+    <span class="page-tag">Government of West Bengal Initiative</span>
+    <h1>Satyendranath Tagore Civil Services Study Centre</h1>
+    <p>Your gateway to subsidised, high-quality UPSC coaching in Kolkata — without going to Delhi.</p>
+  </div>
+
+  <div class="highlight">
+    <strong>What is SNTCSSC?</strong> A state government initiative under the NSATI campus, Salt Lake, designed to train West Bengal students for IAS, IPS, IFS, IRS and allied services. Coaching is heavily subsidised and conducted in collaboration with top institutes like Shubhra Ranjan IAS and Dhyeya IAS.
+  </div>
+
+  <div class="stats">
+    <div class="stat"><span class="stat-val">₹100</span><span class="stat-label">Admission Test Fee (Gen)</span></div>
+    <div class="stat"><span class="stat-val">6–8 PM</span><span class="stat-label">Class Hours</span></div>
+    <div class="stat"><span class="stat-val">12 Weeks</span><span class="stat-label">Prelims Crash Course</span></div>
+    <div class="stat"><span class="stat-val">Salt Lake</span><span class="stat-label">Main Campus</span></div>
+  </div>
+
+  <div class="section-title">Eligibility & Requirements</div>
+
+  <div class="grid-2">
+    <div class="info-card green">
+      <div class="card-label">Academic</div>
+      <div class="card-title">Who Can Apply</div>
+      <div class="card-body">
+        Graduate (or appearing for final year by <strong>1st August</strong> of the admission year). Any stream. No minimum percentage specified for the central SNTCSSC. District centres may vary.
+      </div>
+    </div>
+    <div class="info-card blue">
+      <div class="card-label">Age Limit</div>
+      <div class="card-title">UPSC CSE Age Norms</div>
+      <div class="card-body">
+        General: <strong>21–32 years</strong> (6 attempts). OBC: up to 35 (9 attempts). SC/ST: up to 37 (unlimited). Since you're 23, you have time — but start early.
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="card-label">Domicile</div>
+      <div class="card-title">West Bengal Residents</div>
+      <div class="card-body">
+        Priority given to West Bengal domicile candidates. Hostel facility available for outstation students at the Salt Lake campus.
+      </div>
+    </div>
+    <div class="info-card red">
+      <div class="card-label">Key Constraint</div>
+      <div class="card-title">Limited Seats</div>
+      <div class="card-body">
+        Admission is <strong>first-come-first-served</strong> after clearing the screening/admission test. Do not wait — apply as soon as notification drops.
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">How to Get In — Step by Step</div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <div class="step-title">Watch for Notification</div>
+        <div class="step-desc">Check <strong>csscwb.in</strong> and major Bengali newspapers (Anandabazar, Telegraph) in Oct–Nov for the annual admission cycle. District centre notifications come separately via district websites.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <div class="step-title">Pay Admission Test Fee Online</div>
+        <div class="step-desc">₹100 (General) / ₹50 (SC/ST/OBC). Bank: Indian Bank, Salt Lake GD Market Branch. Account: Centre for Excellence in Public Management. Pay via NEFT/UPI before filling the form.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <div class="step-title">Fill Online Application Form</div>
+        <div class="step-desc">One form per email ID. Cannot be revised after submission. Have scanned photo, signature, and all documents ready. Submit on the official portal link given in the notification.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <div class="step-title">Appear for Screening/Admission Test</div>
+        <div class="step-desc">Written test (100 marks) + possible interview (50 marks) for district centres. Central SNTCSSC conducts its own admission test. Syllabus is general aptitude and current affairs.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <div class="step-title">Join the Composite Course</div>
+        <div class="step-desc">10-month offline programme covering Prelims + Mains + Mock Tests. Optional subjects also offered. Conducted at NSATI Campus, FC Block, Sector III, Salt Lake, Kolkata 700106.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">What the Coaching Covers</div>
+
+  <div class="info-card blue">
+    <div class="card-label">Programmes Available</div>
+    <div class="card-title">Three Tracks</div>
+    <div class="card-body">
+      <strong>Composite Course</strong> — 10-month offline Prelims + Mains + Mock Tests (most comprehensive)<br><br>
+      <strong>Online Prelims Crash Course</strong> — 12 weeks, 6–8 PM, for candidates appearing in the upcoming cycle's Prelims<br><br>
+      <strong>Mains Guidance Programme</strong> — notified after Prelims result; for those who qualify
+    </div>
+    <div class="tags">
+      <span class="tag tag-blue">Smart Classrooms</span>
+      <span class="tag tag-blue">Library Access</span>
+      <span class="tag tag-blue">Hostel Available</span>
+      <span class="tag tag-blue">Mock Interviews</span>
+    </div>
+  </div>
+
+  <div class="alert alert-warn">
+    ⚠️ <strong>Honest note:</strong> SNTCSSC is excellent preparation support — but UPSC itself has a ~0.046% selection rate. Only pursue this if the fire for civil services is genuinely yours, not just your parents' wish. If it is yours, this is the best subsidised route in Bengal.
+  </div>
+
+  <div class="info-card">
+    <div class="card-label">Contact</div>
+    <div class="card-title">Reach Out</div>
+    <div class="card-body">
+      📍 NSATI Campus, FC Block, Sector–III, Salt Lake, Kolkata – 700106<br>
+      📞 +91 90518 29290<br>
+      📧 iascoaching.sntcssc@gmail.com<br>
+      🌐 csscwb.in
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 2: ENTRANCE EXAMS -->
+<div class="page" id="page-entrance">
+  <div class="page-header">
+    <span class="page-tag">MCA Entrance Examinations</span>
+    <h1>WBJECA & NIMCET<br>Crack the Exams, Own the Rank</h1>
+    <p>Two paths to MCA. WBJECA for West Bengal colleges. NIMCET for NITs and IIITs across India. Your BCA makes you eligible for both.</p>
+  </div>
+
+  <div class="grid-2">
+    <div class="info-card blue">
+      <div class="card-label">State Level</div>
+      <div class="card-title">WBJECA</div>
+      <div class="card-body">West Bengal Joint Entrance for MCA. Conducted by WBJEEB. Offline OMR-based. Admission to WB colleges.</div>
+      <div class="tags">
+        <span class="tag tag-blue">100 Questions</span>
+        <span class="tag tag-blue">120 Marks</span>
+        <span class="tag tag-blue">2 Hours</span>
+      </div>
+    </div>
+    <div class="info-card green">
+      <div class="card-label">National Level</div>
+      <div class="card-title">NIMCET</div>
+      <div class="card-body">NIT MCA Common Entrance Test. CBT mode. NITs + IIITs across India. Harder, but bigger institutions.</div>
+      <div class="tags">
+        <span class="tag tag-green">120 Questions</span>
+        <span class="tag tag-green">480 Marks</span>
+        <span class="tag tag-green">2 Hours</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">WBJECA — Complete Breakdown</div>
+
+  <div class="info-card">
+    <div class="card-label">Eligibility</div>
+    <div class="card-title">Who Can Sit</div>
+    <div class="card-body">
+      Indian national. Bachelor's degree (or appearing in final year) in any stream with <strong>Mathematics as a compulsory subject</strong> in at least one year/semester. BCA holders — check: does your IGNOU BCA include Maths? Most do via BCS-012 or equivalent. General: 50% aggregate. Final year students eligible.
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="info-card blue">
+      <div class="card-label">Syllabus</div>
+      <div class="card-title">What to Prepare</div>
+      <div class="card-body">
+        Revised syllabus now covers <strong>undergraduate Computer Application</strong> topics — BCA-level CS. Includes: Programming fundamentals, Data Structures, DBMS, OS basics, Networking, Discrete Maths, and General Aptitude.
+      </div>
+      <div class="tags">
+        <span class="tag tag-blue">BCA-Level CS</span>
+        <span class="tag tag-blue">General Aptitude</span>
+        <span class="tag tag-blue">Maths</span>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="card-label">Marking Scheme</div>
+      <div class="card-title">Scoring Pattern</div>
+      <div class="card-body">
+        Single correct: <strong>+1 / –0.25</strong><br>
+        Multiple correct: partial marking formula applies<br>
+        Total: 120 marks<br>
+        Duration: 2 hours (pen-paper OMR)
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight blue-hl">
+    <strong>Timeline:</strong> Registration typically April–May → Exam June–July → Results August–November → Counselling December. JECA 2026 registration has opened. Check <strong>wbjeeb.nic.in/jeca</strong> now.
+  </div>
+
+  <div class="alert">
+    ✅ Good news: The WBJECA syllabus is now BCA-level CS. Since you're doing BCA from IGNOU, your coursework is directly useful preparation. You're not starting from zero.
+  </div>
+
+  <div class="section-title">NIMCET — Complete Breakdown</div>
+
+  <div class="info-card green">
+    <div class="card-label">Eligibility</div>
+    <div class="card-title">What You Need</div>
+    <div class="card-body">
+      <strong>60% aggregate</strong> (or 6.5 CGPA) in a 3-year UG degree like BCA/BSc/BIT with Maths as compulsory subject. SC/ST: 55% / 6.0 CGPA. <strong>Open University BCA is explicitly eligible</strong> if UGC/AICTE/DEC approved — IGNOU BCA qualifies. Final year students can apply.
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="info-card">
+      <div class="card-label">Exam Structure</div>
+      <div class="card-title">4 Sections</div>
+      <div class="card-body">
+        <strong>Mathematics</strong> — highest weight (~40%)<br>
+        <strong>Analytical & Logical Reasoning</strong><br>
+        <strong>Computer Awareness</strong><br>
+        <strong>General English</strong><br><br>
+        120 MCQs, 480 marks, CBT online, 2 hours
+      </div>
+    </div>
+    <div class="info-card green">
+      <div class="card-label">Marking</div>
+      <div class="card-title">Scoring</div>
+      <div class="card-body">
+        Correct: <strong>+4 marks</strong><br>
+        Incorrect: <strong>–1 mark</strong><br>
+        620+ = very good score (top 100 rank territory)<br>
+        500+ = NIT Kurukshetra / Jamshedpur range<br>
+        Exam: June (CBT mode)
+      </div>
+    </div>
+  </div>
+
+  <div class="info-card green">
+    <div class="card-label">Participating Institutes (2026)</div>
+    <div class="card-title">13 NITs & IIITs</div>
+    <div class="card-body">
+      NIT Warangal, NIT Trichy, NIT Allahabad, NIT Bhopal, NIT Delhi, NIT Jamshedpur, NIT Kurukshetra, NIT Raipur, NIT Patna, NIT Agartala, NIT Meghalaya + IIIT Bhopal + IIIT Vadodara<br><br>
+      <strong>Total seats increased to 1003 for 2026</strong>
+    </div>
+    <div class="tags">
+      <span class="tag tag-green">NIT Warangal</span>
+      <span class="tag tag-green">NIT Trichy</span>
+      <span class="tag tag-green">NIT Allahabad</span>
+      <span class="tag tag-green">NIT Delhi</span>
+    </div>
+  </div>
+
+  <div class="section-title">Preparation Roadmap — 12 Month Plan</div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="tl-phase">Months 1–2 — Foundation</div>
+      <div class="tl-title">Maths & CS Fundamentals</div>
+      <div class="tl-body">
+        Revise: Sets, Relations, Functions, Algebra, Matrices, Coordinate Geometry, Permutations & Combinations, Probability, Statistics. For CS: Data Structures, Algorithms basics, DBMS, OS concepts. Sources: <strong>R.S. Aggarwal MCA Guide</strong>, your BCA textbooks.
+      </div>
+    </div>
+    <div class="timeline-item blue">
+      <div class="tl-phase">Months 3–5 — Core Build</div>
+      <div class="tl-title">Deep Dive into Weak Areas</div>
+      <div class="tl-body">
+        Identify weak sections through mock tests. NIMCET: Maths carries ~40% — cannot afford to ignore it. Discrete Maths (NIMCET) is important. English: practice reading comprehension and grammar. Logical Reasoning: 30 mins/day consistently beats cramming.
+      </div>
+    </div>
+    <div class="timeline-item green">
+      <div class="tl-phase">Months 6–9 — Practice Phase</div>
+      <div class="tl-title">Previous Papers + Mock Tests</div>
+      <div class="tl-body">
+        Solve last 5–7 years of NIMCET and WBJECA papers under timed conditions. Join free/paid mock series on <strong>CareerLauncher</strong> or <strong>Testbook</strong>. Track accuracy per section. Time management at this stage is everything.
+      </div>
+    </div>
+    <div class="timeline-item purple">
+      <div class="tl-phase">Months 10–12 — Final Sprint</div>
+      <div class="tl-title">Revision + Speed + Accuracy</div>
+      <div class="tl-body">
+        3 full mocks per week. Formula sheets for Maths. Revise CS fundamentals. Focus on eliminating silly errors. In NIMCET, <strong>–1 per wrong answer</strong> — do not attempt blind guesses. Aim for 620+ to target top NITs.
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight">
+    <strong>Strategy note:</strong> Give both exams. WBJECA is easier and keeps options in WB. NIMCET opens NIT Warangal and NIT Trichy — which are significantly more valuable for a Data Science/AI-focused MCA. Aim for both, prioritise NIMCET preparation depth.
+  </div>
+</div>
+
+<!-- PAGE 3: CAREER PATH -->
+<div class="page" id="page-career">
+  <div class="page-header">
+    <span class="page-tag">The Long Game</span>
+    <h1>Your Career Roadmap<br>Data, Policy & Analytics</h1>
+    <p>BCA → MCA → Data Science with a focus on geopolitics, policy, and sports analytics. Here's the map, clearly.</p>
+  </div>
+
+  <div class="highlight">
+    <strong>The core insight:</strong> You're drawn to understanding complex systems through data — football tactics, electoral patterns, geopolitical shifts. That's not a hobby. That's a cognitive style that maps directly to one of the most valuable professional profiles in India right now: the <strong>analytical thinker who can work with data and communicate meaning</strong>.
+  </div>
+
+  <div class="section-title">The Full Path — Phase by Phase</div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="tl-phase">Now → June 2026 — Clean the Slate</div>
+      <div class="tl-title">Finish What's Open</div>
+      <div class="tl-body">
+        Clear IGNOU Sem 4 exams (June). Submit all pending assignments by end of April. Clear the Physics Waves & Optics supple (CU — watch for notification). Complete Udemy Web Dev course. No new commitments until these close.
+        <div class="tags">
+          <span class="tag tag-gold">BCOC-131</span>
+          <span class="tag tag-gold">BCS-041</span>
+          <span class="tag tag-gold">BCSL-146</span>
+          <span class="tag tag-gold">Physics Supple</span>
+        </div>
+      </div>
+    </div>
+    <div class="timeline-item blue">
+      <div class="tl-phase">Mid 2026 → Mid 2027 — Learn the Tools</div>
+      <div class="tl-title">Python + Data Skills (Alongside Remaining BCA)</div>
+      <div class="tl-body">
+        <strong>Python basics:</strong> CS50P (free, Harvard) or Python for Everybody (Coursera). Then <strong>Pandas + NumPy + Matplotlib</strong> — the core data stack. <strong>One small project</strong> in something you care about: Barça pressing stats, WB election data, IPL analytics. Get it on GitHub.
+        <div class="tags">
+          <span class="tag tag-blue">Python</span>
+          <span class="tag tag-blue">Pandas</span>
+          <span class="tag tag-blue">NumPy</span>
+          <span class="tag tag-blue">GitHub</span>
+          <span class="tag tag-blue">SQL Basics</span>
+        </div>
+      </div>
+    </div>
+    <div class="timeline-item green">
+      <div class="tl-phase">2027 — The Entrance Grind</div>
+      <div class="tl-title">NIMCET + WBJECA Preparation</div>
+      <div class="tl-body">
+        BCA completion → NIMCET 2027 registration (March onwards) + WBJECA 2027. 12-month structured preparation. Aim: <strong>NIT Warangal or NIT Trichy MCA</strong> — both have strong CS infrastructure and placement records for Data Science roles.
+        <div class="tags">
+          <span class="tag tag-green">NIMCET 2027</span>
+          <span class="tag tag-green">WBJECA 2027</span>
+          <span class="tag tag-green">Target: NIT Warangal</span>
+        </div>
+      </div>
+    </div>
+    <div class="timeline-item purple">
+      <div class="tl-phase">2027–2029 — MCA Years</div>
+      <div class="tl-title">Build the Actual Skillset</div>
+      <div class="tl-body">
+        During MCA: go deep on <strong>Machine Learning, Statistics, Data Visualisation, NLP basics</strong>. Take electives in AI/ML if available. Build 2–3 substantial portfolio projects. One geopolitical data project, one sports analytics project. Participate in Kaggle competitions. Intern in analytics or research by second year.
+        <div class="tags">
+          <span class="tag tag-purple">Machine Learning</span>
+          <span class="tag tag-purple">Statistics</span>
+          <span class="tag tag-purple">NLP</span>
+          <span class="tag tag-purple">Kaggle</span>
+          <span class="tag tag-purple">Research Internship</span>
+        </div>
+      </div>
+    </div>
+    <div class="timeline-item green">
+      <div class="tl-phase">2029 Onwards — The Real Game</div>
+      <div class="tl-title">Where You Could Land</div>
+      <div class="tl-body">
+        The roles that match your profile: <strong>Data Analyst / Research Analyst</strong> at think tanks (ORF, CPR, Takshashila), consulting firms, political research organisations, media analytics, sports analytics companies (Dream11, Sportradar India), and tech companies with policy/impact focus.
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">Your Unfair Advantages</div>
+
+  <div class="grid-2">
+    <div class="info-card green">
+      <div class="card-label">Cognitive Style</div>
+      <div class="card-title">Systems Thinker</div>
+      <div class="card-body">You instinctively reach for data to understand complexity — football, politics, geopolitics. That's the analyst's brain. Most people have to be trained to think this way. You already do it for fun.</div>
+    </div>
+    <div class="info-card blue">
+      <div class="card-label">Cultural Depth</div>
+      <div class="card-title">Bengali Intellectual Tradition</div>
+      <div class="card-body">Familiarity with history, political nuance, and the Bengal Renaissance gives you a contextual depth that pure tech-heads lack. Policy and geopolitical analysis requires this kind of background thinking.</div>
+    </div>
+    <div class="info-card">
+      <div class="card-label">Communication</div>
+      <div class="card-title">Theatre + Writing</div>
+      <div class="card-body">Your theatre background and ability to communicate ideas clearly is a serious edge in data roles. Analysts who can tell the story behind the numbers are far rarer than those who can just run models.</div>
+    </div>
+    <div class="info-card purple">
+      <div class="card-label">Football Analytics</div>
+      <div class="card-title">Passion = Practice</div>
+      <div class="card-body">Pre-match analysis you do for Barça/Argentina is literally applied analytics. Learning to formalise this in Python (FBref, StatsBomb data) gives you a portfolio project that stands out from generic ML projects.</div>
+    </div>
+  </div>
+
+  <div class="section-title">First 3 Concrete Actions</div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <div class="step-title">Finish current commitments cleanly (by July 2026)</div>
+        <div class="step-desc">IGNOU assignments → Sem 4 exams → Physics supple → Web Dev course completion. This is the foundation. Nothing else matters until this is done.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <div class="step-title">Start Python casually (July–August 2026)</div>
+        <div class="step-desc">CS50P is free and excellent. Or just mess with Pandas using a football dataset from FBref.com. 30 mins/day. No pressure. Just build familiarity before MCA makes it formal.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <div class="step-title">Begin NIMCET prep structure (September 2026 onwards)</div>
+        <div class="step-desc">Get R.S. Aggarwal's MCA Guide. Start Maths revision — it's the heaviest section. 1 hour/day on Maths alone. Build from there. NIMCET 2027 registration opens March 2027 — you have time if you start now.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert">
+    ✅ <strong>The bottom line:</strong> BCA → MCA (NIT if possible) → Data Science with policy/sports/geopolitics focus. This is yours. It fits your head, your interests, and your natural way of thinking. The path is clear. Now it's just execution.
+  </div>
+
+  <div class="info-card purple">
+    <div class="card-label">The Honest Reminder</div>
+    <div class="card-title">Self-belief follows action, not the other way around</div>
+    <div class="card-body">
+      You're not going to feel ready before you start. The confidence comes from the doing. Every assignment submitted, every exam cleared, every Python script that actually runs — that's the floor being built. One brick at a time. You have the head for this. Now prove it to yourself.
+    </div>
+  </div>
+</div>
+
+<script>
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('page-' + id).classList.add('active');
+    event.target.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>
