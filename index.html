@@ -470,9 +470,10 @@
         <div class="brand">Ruddrava's <span>Master Routine</span></div>
         <div style="font-size:12px;color:var(--text3);margin-top:4px;">BCA Sem 4 · IGNOU · Apr – Aug 2026</div>
       </div>
-      <div class="meta">
+      <div class="meta" id="live-meta">
         Jun exams: Jun 11–25 · Dec exams: Dec 2026<br>
-        Assignments due: Apr 30, 2026<br>
+        <span id="clock-line">Loading...</span><br>
+        Assignments due: <span id="assign-countdown" style="color:var(--accent3);"></span><br>
         Fitness goal: ~72–75 kg by Dec
       </div>
     </div>
@@ -588,72 +589,172 @@
 
     <div class="deadline-banner">
       <span class="icon">⚡</span>
-      <span>Submission deadline: <strong>April 30, 2026</strong> — 19 days from today. Use Study Block 1 (9 AM–12 PM) exclusively for assignments until they're done.</span>
+      <span id="deadline-banner-text">Loading deadline info...</span>
     </div>
 
-    <div class="section-label" style="margin-bottom:0.5rem;">Assignment priority order</div>
-    <div class="day-card" style="margin-bottom:1.5rem;">
-      <div class="assign-row" style="background:var(--bg3);font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;">
-        <div>Dates</div><div>Assignment</div><div style="text-align:right;">Note</div>
-      </div>
-      <div class="assign-row">
-        <div class="assign-days">Apr 11–14</div>
-        <div>
-          <div class="assign-name">BCOC-131 · Financial Accounting</div>
-          <div style="font-size:11.5px;color:var(--text3);margin-top:2px;">Most time-consuming — journals, ledger, calculations</div>
+    <!-- SEM 4 ASSIGNMENTS (Apr 30, 2026) -->
+    <div id="assign-sem4" class="assign-cycle">
+      <div class="section-label" style="margin-bottom:0.5rem;">Sem 4 · Assignment priority order</div>
+      <div class="day-card" style="margin-bottom:1.5rem;">
+        <div class="assign-row" style="background:var(--bg3);font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;">
+          <div>Dates</div><div>Assignment</div><div style="text-align:right;">Note</div>
         </div>
-        <div class="assign-note">4 days</div>
-      </div>
-      <div class="assign-row">
-        <div class="assign-days">Apr 15–17</div>
-        <div>
-          <div class="assign-name">BCS-041 · Computer Networks</div>
-          <div style="font-size:11.5px;color:var(--text3);margin-top:2px;">Theory-heavy, needs focused writing</div>
+        <div class="assign-row">
+          <div class="assign-days">Apr 11–14</div>
+          <div>
+            <div class="assign-name">BCOC-131 · Financial Accounting</div>
+            <div style="font-size:11.5px;color:var(--text3);margin-top:2px;">Most time-consuming — journals, ledger, calculations</div>
+          </div>
+          <div class="assign-note">4 days</div>
         </div>
-        <div class="assign-note">3 days</div>
-      </div>
-      <div class="assign-row">
-        <div class="assign-days">Apr 18–21</div>
-        <div>
-          <div class="assign-name">BCS-053 · Web Programming</div>
-          <div style="font-size:11.5px;color:var(--text3);margin-top:2px;">Overlaps with Udemy course — you're ahead here</div>
+        <div class="assign-row">
+          <div class="assign-days">Apr 15–17</div>
+          <div>
+            <div class="assign-name">BCS-041 · Computer Networks</div>
+            <div style="font-size:11.5px;color:var(--text3);margin-top:2px;">Theory-heavy, needs focused writing</div>
+          </div>
+          <div class="assign-note">3 days</div>
         </div>
-        <div class="assign-note">4 days</div>
-      </div>
-      <div class="assign-row">
-        <div class="assign-days">Apr 22–24</div>
-        <div>
-          <div class="assign-name">BCSL-146 · OOP Java Lab</div>
-          <div style="font-size:11.5px;color:var(--text3);margin-top:2px;">Practical-based, shorter to complete</div>
+        <div class="assign-row">
+          <div class="assign-days">Apr 18–21</div>
+          <div>
+            <div class="assign-name">BCS-053 · Web Programming</div>
+            <div style="font-size:11.5px;color:var(--text3);margin-top:2px;">Overlaps with Udemy course — you're ahead here</div>
+          </div>
+          <div class="assign-note">4 days</div>
         </div>
-        <div class="assign-note">3 days</div>
-      </div>
-      <div class="assign-row">
-        <div class="assign-days">Apr 25–27</div>
-        <div>
-          <div class="assign-name">BCSL-147 · Web Programming Lab</div>
-          <div style="font-size:11.5px;color:var(--text3);margin-top:2px;">Fastest — your Udemy work gives a running start</div>
+        <div class="assign-row">
+          <div class="assign-days">Apr 22–24</div>
+          <div>
+            <div class="assign-name">BCSL-146 · OOP Java Lab</div>
+            <div style="font-size:11.5px;color:var(--text3);margin-top:2px;">Practical-based, shorter to complete</div>
+          </div>
+          <div class="assign-note">3 days</div>
         </div>
-        <div class="assign-note">3 days</div>
-      </div>
-      <div class="assign-row" style="border-bottom:none;">
-        <div class="assign-days" style="color:var(--accent);">Apr 28–30</div>
-        <div>
-          <div class="assign-name" style="color:var(--accent);">Buffer + submission</div>
-          <div style="font-size:11.5px;color:var(--text3);margin-top:2px;">Review all, print, submit — done ✓</div>
+        <div class="assign-row">
+          <div class="assign-days">Apr 25–27</div>
+          <div>
+            <div class="assign-name">BCSL-147 · Web Programming Lab</div>
+            <div style="font-size:11.5px;color:var(--text3);margin-top:2px;">Fastest — your Udemy work gives a running start</div>
+          </div>
+          <div class="assign-note">3 days</div>
         </div>
-        <div class="assign-note" style="color:var(--accent);">3 days</div>
+        <div class="assign-row" style="border-bottom:none;">
+          <div class="assign-days" style="color:var(--accent);">Apr 28–30</div>
+          <div>
+            <div class="assign-name" style="color:var(--accent);">Buffer + submission</div>
+            <div style="font-size:11.5px;color:var(--text3);margin-top:2px;">Review all, print, submit — done ✓</div>
+          </div>
+          <div class="assign-note" style="color:var(--accent);">3 days</div>
+        </div>
+      </div>
+      <div class="section-label">Key tip</div>
+      <div class="info-box">
+        For <strong>BCSL-146 and BCSL-147</strong> (lab assignments) — look at what IGNOU's question asks and map it to something you've already built on Udemy. You'll save significant time and the quality will be better since it's real code you understand.<br><br>
+        After April 30, <strong>Block 1 switches fully back to exam prep</strong> and Phase 2 kicks in right on schedule. You're not losing any ground — just front-loading a sprint.
+      </div>
+      <div class="info-box" style="background:rgba(120,199,255,0.05);border-color:rgba(120,199,255,0.15);">
+        <strong style="color:var(--accent2);">MCS-206 already done ✓</strong> — one less thing to worry about. That's your toughest Sem 4 subject checked off the assignment list. Good head start.
+      </div>
+      <div style="text-align:center;margin-top:1rem;">
+        <button onclick="markSem4Done()" style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12.5px;font-weight:700;background:var(--accent);color:#0c0e14;border:none;padding:10px 28px;border-radius:30px;cursor:pointer;letter-spacing:0.02em;transition:opacity 0.15s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">✓ Mark Sem 4 Assignments Done</button>
       </div>
     </div>
 
-    <div class="section-label">Key tip</div>
-    <div class="info-box">
-      For <strong>BCSL-146 and BCSL-147</strong> (lab assignments) — look at what IGNOU's question asks and map it to something you've already built on Udemy. You'll save significant time and the quality will be better since it's real code you understand.<br><br>
-      After April 30, <strong>Block 1 switches fully back to exam prep</strong> and Phase 2 kicks in right on schedule. You're not losing any ground — just front-loading a sprint.
+    <!-- SEM 5 ASSIGNMENTS (Oct 30, 2026) -->
+    <div id="assign-sem5" class="assign-cycle" style="display:none;">
+      <div class="section-label" style="margin-bottom:0.5rem;">Sem 5 · Assignment priority order</div>
+      <div class="day-card" style="margin-bottom:1.5rem;">
+        <div class="assign-row" style="background:var(--bg3);font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;">
+          <div>Subject</div><div>Assignment</div><div style="text-align:right;">Note</div>
+        </div>
+        <div class="assign-row">
+          <div class="assign-days" style="color:var(--accent3);">Priority 1</div>
+          <div>
+            <div class="assign-name">BCS-042 · Algorithm Design</div>
+            <div style="font-size:11.5px;color:var(--text3);margin-top:2px;">Hardest — algorithm proofs, complexity analysis, written derivations</div>
+          </div>
+          <div class="assign-note">First</div>
+        </div>
+        <div class="assign-row">
+          <div class="assign-days" style="color:var(--accent3);">Priority 2</div>
+          <div>
+            <div class="assign-name">BCS-151 · Software Engineering</div>
+            <div style="font-size:11.5px;color:var(--text3);margin-top:2px;">Diagrams, SDLC models, UML — time-consuming but structured</div>
+          </div>
+          <div class="assign-note">Second</div>
+        </div>
+        <div class="assign-row">
+          <div class="assign-days" style="color:var(--accent3);">Priority 3</div>
+          <div>
+            <div class="assign-name">MSEI-023 · Cyber Security</div>
+            <div style="font-size:11.5px;color:var(--text3);margin-top:2px;">Theory-heavy, definitions and case-based answers</div>
+          </div>
+          <div class="assign-note">Third</div>
+        </div>
+        <div class="assign-row">
+          <div class="assign-days" style="color:var(--accent3);">Priority 4</div>
+          <div>
+            <div class="assign-name">BCOS-184 · E-Commerce</div>
+            <div style="font-size:11.5px;color:var(--text3);margin-top:2px;">Conceptual, mostly descriptive answers</div>
+          </div>
+          <div class="assign-note">Fourth</div>
+        </div>
+        <div class="assign-row">
+          <div class="assign-days" style="color:var(--accent3);">Priority 5</div>
+          <div>
+            <div class="assign-name">BECS-184 · Data Analysis</div>
+            <div style="font-size:11.5px;color:var(--text3);margin-top:2px;">Stats problems + interpretation — do last, needs focus</div>
+          </div>
+          <div class="assign-note">Fifth</div>
+        </div>
+        <div class="assign-row" style="border-bottom:none;">
+          <div class="assign-days" style="color:var(--accent);">BCSL-159</div>
+          <div>
+            <div class="assign-name" style="color:var(--accent);">Algorithm Design Lab — practical assignment</div>
+            <div style="font-size:11.5px;color:var(--text3);margin-top:2px;">Pair with BCS-042 theory — do together, saves time</div>
+          </div>
+          <div class="assign-note" style="color:var(--accent);">With #1</div>
+        </div>
+      </div>
+      <div class="info-box">
+        Sem 5 assignments open after April 30, 2026. Deadline: <strong>October 30, 2026</strong>. Start these in <strong>August</strong> — don't wait for October. You'll be deep in exam prep by then and won't want assignment pressure on top.
+      </div>
+      <div style="text-align:center;margin-top:1rem;">
+        <button onclick="markSem5Done()" style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12.5px;font-weight:700;background:var(--accent);color:#0c0e14;border:none;padding:10px 28px;border-radius:30px;cursor:pointer;letter-spacing:0.02em;transition:opacity 0.15s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">✓ Mark Sem 5 Assignments Done</button>
+      </div>
     </div>
 
-    <div class="info-box" style="background:rgba(120,199,255,0.05);border-color:rgba(120,199,255,0.15);">
-      <strong style="color:var(--accent2);">MCS-206 already done ✓</strong> — one less thing to worry about. That's your toughest Sem 4 subject checked off the assignment list. Good head start.
+    <!-- SEM 6 ASSIGNMENTS (Apr 30, 2027) -->
+    <div id="assign-sem6" class="assign-cycle" style="display:none;">
+      <div class="section-label" style="margin-bottom:0.5rem;">Sem 6 · Assignment priority order</div>
+      <div class="day-card" style="margin-bottom:1.5rem;">
+        <div class="assign-row" style="background:var(--bg3);font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;">
+          <div>Subject</div><div>Assignment</div><div style="text-align:right;">Note</div>
+        </div>
+        <div class="assign-row">
+          <div class="assign-days" style="color:var(--accent3);">Priority 1</div>
+          <div>
+            <div class="assign-name">MSEI-027 · Digital Forensics</div>
+            <div style="font-size:11.5px;color:var(--text3);margin-top:2px;">Technical subject — tools, procedures, case analysis</div>
+          </div>
+          <div class="assign-note">First</div>
+        </div>
+        <div class="assign-row" style="border-bottom:none;">
+          <div class="assign-days" style="color:var(--accent3);">Priority 2</div>
+          <div>
+            <div class="assign-name">BCOS-185 · Entrepreneurship</div>
+            <div style="font-size:11.5px;color:var(--text3);margin-top:2px;">Conceptual, business plan writing — descriptive answers</div>
+          </div>
+          <div class="assign-note">Second</div>
+        </div>
+      </div>
+      <div class="info-box">
+        Sem 6 assignments open after October 30, 2026. Deadline: <strong>April 30, 2027</strong>. Only 2 subjects this cycle — lightest assignment load of your entire BCA. Start in <strong>February 2027</strong> and finish comfortably before exam prep heats up.
+      </div>
+      <div class="info-box" style="background:rgba(168,255,120,0.05);border-color:rgba(168,255,120,0.15);">
+        <strong>MCS-207 and MCS-208</strong> are backlog theory re-attempts — no fresh assignments required for backlogs. Just the 2 Sem 6 subjects above.
+      </div>
     </div>
 
   </div>
@@ -664,12 +765,17 @@
     <div class="sub-tabs">
       <button class="sub-btn active" onclick="switchSub('jun',this)">June 2026 — Sem 4 + Backlog</button>
       <button class="sub-btn" onclick="switchSub('dec',this)">December 2026 — Sem 5 + Backlogs</button>
+      <button class="sub-btn" onclick="switchSub('jun27',this)">June 2027 — Sem 6 + Final Backlogs</button>
     </div>
 
     <!-- JUNE -->
     <div id="jun" class="sub-section active">
 
-      <div class="section-label">Exam schedule</div>
+      <div class="info-box" style="background:rgba(255,126,179,0.05);border-color:rgba(255,126,179,0.2);margin-bottom:1.5rem;">
+        <strong style="color:var(--accent4);">⚠ Practical booking correction:</strong> You registered only Sem 4 practicals (BCSL-146, BCSL-147) this cycle. The 4 backlog practicals — MCSL-204, MCSL-205, BCSL-135, MCSL-209 — were <strong>not booked</strong> and need to be registered in a future cycle. They are now slotted into Dec 2026. Plan adjusted accordingly.
+      </div>
+
+      <div class="section-label">Exam schedule — June 2026</div>
       <div class="exam-table" style="margin-bottom:2rem;">
         <div class="exam-row">
           <div class="exam-date">11 Jun — afternoon</div>
@@ -696,6 +802,24 @@
           <div class="exam-name">BCS-053 · Web Programming</div>
           <div><span class="badge s4">Sem 4</span></div>
         </div>
+      </div>
+
+      <div class="section-label">Practicals this cycle</div>
+      <div class="exam-table" style="margin-bottom:2rem;">
+        <div class="exam-row">
+          <div class="exam-date">Booked ✓</div>
+          <div class="exam-name">BCSL-146 · OOP Java Lab — complete at study centre before Jun exams</div>
+          <div><span class="badge s4">Sem 4</span></div>
+        </div>
+        <div class="exam-row">
+          <div class="exam-date">Booked ✓</div>
+          <div class="exam-name">BCSL-147 · Web Programming Lab — complete at study centre before Jun exams</div>
+          <div><span class="badge s4">Sem 4</span></div>
+        </div>
+      </div>
+
+      <div class="info-box" style="background:rgba(255,179,71,0.05);border-color:rgba(255,179,71,0.2);margin-bottom:2rem;">
+        <strong style="color:var(--accent3);">Action required now:</strong> Book your BCSL-146 and BCSL-147 practical dates at your study centre <strong>immediately</strong> — these need to be done before your June theory exams start. Don't leave this for May. The 4 backlog practicals (MCSL-204, MCSL-205, BCSL-135, MCSL-209) will need fresh registration in the Dec 2026 cycle — watch IGNOU's re-registration window.
       </div>
 
       <div class="section-label">Study phases</div>
@@ -746,10 +870,10 @@
     <div id="dec" class="sub-section">
 
       <div class="info-box" style="margin-bottom:1.5rem;">
-        <strong>8 subjects total this cycle.</strong> 5 Sem 5 subjects + 3 carefully chosen backlogs. MCS207 (DBMS) and MCS208 (Data Structures) are deliberately left out — too heavy to pair with Algorithm Design. They go in the next cycle.
+        <strong>Big cycle — 8 theory subjects + 4 backlog practicals.</strong> 5 Sem 5 theory + 3 backlog theory + BCSL-159 (Sem 5 lab) + MCSL-204, MCSL-205, BCSL-135, MCSL-209 (Sem 2–3 backlog labs). Heavy but manageable if you front-load the practicals between July and October. MCS-207 and MCS-208 stay deferred to June 2027 — they're too heavy to pair with Algorithm Design.
       </div>
 
-      <div class="section-label">December exam subjects</div>
+      <div class="section-label">December theory subjects</div>
       <div class="exam-table" style="margin-bottom:2rem;">
         <div class="exam-row">
           <div class="exam-date">Sem 5</div>
@@ -793,32 +917,63 @@
         </div>
       </div>
 
-      <div class="info-box" style="background:rgba(255,179,71,0.05);border-color:rgba(255,179,71,0.2);margin-bottom:1.5rem;">
-        <strong style="color:var(--accent3);">Practicals for Sem 5:</strong> BCSL-159 (Algorithm Design Lab) needs to be done at the centre. Schedule this between August and October — don't leave it for November.
+      <div class="section-label">Practicals this cycle — register during re-registration window</div>
+      <div class="exam-table" style="margin-bottom:1rem;">
+        <div class="exam-row">
+          <div class="exam-date">Sem 5 · Jul–Oct</div>
+          <div class="exam-name">BCSL-159 · Algorithm Design Lab — book at centre, do before November</div>
+          <div><span class="badge s4" style="background:var(--webdev);color:var(--webdev-text);">Sem 5</span></div>
+        </div>
+        <div class="exam-row">
+          <div class="exam-date">Backlog · Jul–Aug</div>
+          <div class="exam-name">MCSL-204 · Windows and Linux Lab — register + complete at centre</div>
+          <div><span class="badge bl">Backlog</span></div>
+        </div>
+        <div class="exam-row">
+          <div class="exam-date">Backlog · Jul–Aug</div>
+          <div class="exam-name">MCSL-205 · C and Python Lab — register + complete at centre</div>
+          <div><span class="badge bl">Backlog</span></div>
+        </div>
+        <div class="exam-row">
+          <div class="exam-date">Backlog · Aug–Sep</div>
+          <div class="exam-name">BCSL-135 · DBMS and C++ Lab — register + complete at centre</div>
+          <div><span class="badge bl">Backlog</span></div>
+        </div>
+        <div class="exam-row">
+          <div class="exam-date">Backlog · Sep–Oct</div>
+          <div class="exam-name">MCSL-209 · Data Structures and Algorithms Lab — register + complete at centre</div>
+          <div><span class="badge bl">Backlog</span></div>
+        </div>
+      </div>
+
+      <div class="info-box" style="background:rgba(255,179,71,0.05);border-color:rgba(255,179,71,0.2);margin-bottom:2rem;">
+        <strong style="color:var(--accent3);">Critical action — Re-registration:</strong> You must register for all 4 backlog practicals (MCSL-204, MCSL-205, BCSL-135, MCSL-209) during IGNOU's re-registration window for the December 2026 cycle (typically opens around July). <strong>Do not miss this window</strong> — missing it pushes them to June 2027 and creates a pile-up. Check ignou.ac.in regularly from June onwards.
       </div>
 
       <div class="section-label">December study phases</div>
       <div class="phase-grid">
         <div class="phase-card blue">
-          <div class="phase-title">Phase 1 — Post-June recovery + foundation · Jul 1 – Aug 15</div>
+          <div class="phase-title">Phase 1 — Recovery + practical blitz · Jul 1 – Aug 15</div>
           <div class="phase-body">
-            Exams are done, take a week off first. Then start Sem 5 SLM reading in light rotation — 1 subject per day, just getting familiar. Simultaneously clear MCS207 and MCS208 theory revision since they're NOT in this exam cycle but you need to prep them for a future one.<br><br>
-            <strong>Backlog subjects this phase:</strong> Start MCS-201 (C &amp; Python). It's familiar territory from Sem 2 — should be quick to cover.
+            Take one week off after June exams — earned it. Then immediately pivot to <strong>practicals first</strong>. This is the window to knock out MCSL-204 and MCSL-205 at the study centre — they're straightforward (Windows/Linux, C/Python) and you have the programming background. Get them done in July itself.<br><br>
+            Alongside this, start light SLM reading for Sem 5 subjects — 1 subject per day, no pressure, just getting familiar with structure. Begin MCS-201 (C &amp; Python) theory revision since it's familiar ground.
           </div>
         </div>
         <div class="phase-card green">
-          <div class="phase-title">Phase 2 — Intensive · Aug 16 – Oct 31</div>
+          <div class="phase-title">Phase 2 — Intensive theory + remaining practicals · Aug 16 – Oct 31</div>
           <div class="phase-body">
             Deep study begins. Two subjects in parallel per week.<br>
             <strong>Aug–Sep:</strong> BCS-151 (Software Engg) + BCS-042 (Algorithm Design) — pair these, they complement each other.<br>
             <strong>Sep–Oct:</strong> MSEI-023 (Cyber Security) + BCOS-184 (E-Commerce) — lighter conceptual subjects, faster to cover.<br>
-            <strong>Backlogs:</strong> BCS-131 (C++) in September — your Java OOP knowledge carries directly into this. MCS-203 (OS) in October.
+            <strong>Backlogs:</strong> BCS-131 (C++) in September — your Java OOP knowledge transfers directly. MCS-203 (OS) in October.<br><br>
+            <strong>Practicals:</strong> Clear BCSL-135 in August–September and MCSL-209 in September–October. BCSL-159 (Algo Lab) also in this window — Sep or Oct latest.
           </div>
         </div>
         <div class="phase-card orange">
-          <div class="phase-title">Phase 3 — Final rotation · Nov 1 – Nov 30</div>
+          <div class="phase-title">Phase 3 — Final theory rotation · Nov 1 – Nov 30</div>
           <div class="phase-body">
-            All 8 subjects in rotation. 1.5 hrs each per day in a fixed cycle. BECS-184 (Data Analysis) gets focused attention this month — it involves stats and data concepts that need practice.<br><br>
+            All practicals should be <strong>fully done</strong> by end of October. November is theory-only, no centre visits.<br><br>
+            All 8 subjects in rotation. 1.5 hrs each per day in a fixed cycle. BECS-184 (Data Analysis) gets focused attention — stats and data concepts need paper practice.<br><br>
             Past papers for every subject. Write answers on paper — IGNOU is handwritten. Time yourself.
           </div>
         </div>
@@ -826,9 +981,149 @@
           <div class="phase-title">Phase 4 — Final sprint · Dec 1 – exam start</div>
           <div class="phase-body">
             Revision only. No new material. Key formulas, definitions, diagrams. Exam-day logistics sorted: admit card, centre location, stationery.<br><br>
-            <strong>Backlogs to defer:</strong> MCS-207 (DBMS) and MCS-208 (Data Structures) — hold these for the June 2027 cycle when you can give them proper attention.
+            <strong>Backlogs carried to June 2027:</strong> MCS-207 (DBMS) and MCS-208 (Data Structures) — they get their own focused cycle next year.
           </div>
         </div>
+      </div>
+
+    </div>
+
+    <!-- JUNE 2027 -->
+    <div id="jun27" class="sub-section">
+
+      <div class="info-box" style="margin-bottom:1.5rem;">
+        <strong>This is the finish line cycle.</strong> Only 4 subjects — 2 Sem 6 + 2 final backlogs. After this, all backlogs from Sem 1–3 are fully cleared. Lightest exam load you'll have had in your entire BCA. Use that breathing room to study deep, not wide.
+      </div>
+
+      <div class="section-label">Exam subjects</div>
+      <div class="exam-table" style="margin-bottom:2rem;">
+        <div class="exam-row">
+          <div class="exam-date">Sem 6</div>
+          <div class="exam-name">BCOS-185 · Entrepreneurship</div>
+          <div><span class="badge s4" style="background:var(--webdev);color:var(--webdev-text);">Sem 6</span></div>
+        </div>
+        <div class="exam-row">
+          <div class="exam-date">Sem 6</div>
+          <div class="exam-name">MSEI-027 · Digital Forensics</div>
+          <div><span class="badge s4" style="background:var(--webdev);color:var(--webdev-text);">Sem 6</span></div>
+        </div>
+        <div class="exam-row">
+          <div class="exam-date">Backlog</div>
+          <div class="exam-name">MCS-207 · Database Management Systems</div>
+          <div><span class="badge bl">Backlog</span></div>
+        </div>
+        <div class="exam-row">
+          <div class="exam-date">Backlog</div>
+          <div class="exam-name">MCS-208 · Data Structures and Algorithms</div>
+          <div><span class="badge bl">Backlog</span></div>
+        </div>
+      </div>
+
+      <div class="info-box" style="background:rgba(255,126,179,0.05);border-color:rgba(255,126,179,0.2);margin-bottom:1.5rem;">
+        <strong style="color:var(--accent4);">Why MCS-207 and MCS-208 were deferred:</strong> DBMS and Data Structures are two of the heaviest theory+conceptual subjects in the entire BCA. Pairing them with Algorithm Design (BCS-042) in Dec 2026 would have been a disaster. Here in June 2027, they're your main event — they get the full attention they deserve.
+      </div>
+
+      <div class="section-label">Backlog clearance status — complete picture</div>
+      <div class="day-card" style="margin-bottom:1.5rem;">
+        <div class="assign-row" style="background:var(--bg3);font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;">
+          <div>Subject</div><div>Status</div><div style="text-align:right;">Cycle</div>
+        </div>
+        <div class="assign-row">
+          <div class="assign-name">BCS-111 · Computer Basics and PC Software</div>
+          <div style="font-size:11.5px;color:var(--accent);">✓ Cleared</div>
+          <div class="assign-note">June 2026</div>
+        </div>
+        <div class="assign-row">
+          <div class="assign-name">MCS-201 · Programming in C and Python</div>
+          <div style="font-size:11.5px;color:var(--accent);">✓ Cleared</div>
+          <div class="assign-note">Dec 2026</div>
+        </div>
+        <div class="assign-row">
+          <div class="assign-name">MCS-203 · Operating Systems</div>
+          <div style="font-size:11.5px;color:var(--accent);">✓ Cleared</div>
+          <div class="assign-note">Dec 2026</div>
+        </div>
+        <div class="assign-row">
+          <div class="assign-name">BCS-131 · Programming in C++</div>
+          <div style="font-size:11.5px;color:var(--accent);">✓ Cleared</div>
+          <div class="assign-note">Dec 2026</div>
+        </div>
+        <div class="assign-row">
+          <div class="assign-name">MCSL-204 · Windows and Linux Lab</div>
+          <div style="font-size:11.5px;color:var(--accent);">✓ Cleared</div>
+          <div class="assign-note">Dec 2026 centre</div>
+        </div>
+        <div class="assign-row">
+          <div class="assign-name">MCSL-205 · C and Python Lab</div>
+          <div style="font-size:11.5px;color:var(--accent);">✓ Cleared</div>
+          <div class="assign-note">Dec 2026 centre</div>
+        </div>
+        <div class="assign-row">
+          <div class="assign-name">BCSL-135 · DBMS and C++ Lab</div>
+          <div style="font-size:11.5px;color:var(--accent);">✓ Cleared</div>
+          <div class="assign-note">Dec 2026 centre</div>
+        </div>
+        <div class="assign-row">
+          <div class="assign-name">MCSL-209 · Data Structures Lab</div>
+          <div style="font-size:11.5px;color:var(--accent);">✓ Cleared</div>
+          <div class="assign-note">Dec 2026 centre</div>
+        </div>
+        <div class="assign-row">
+          <div class="assign-name">MCS-207 · Database Management Systems</div>
+          <div style="font-size:11.5px;color:var(--accent4);">→ This cycle</div>
+          <div class="assign-note">June 2027</div>
+        </div>
+        <div class="assign-row" style="border-bottom:none;">
+          <div class="assign-name">MCS-208 · Data Structures and Algorithms</div>
+          <div style="font-size:11.5px;color:var(--accent4);">→ This cycle</div>
+          <div class="assign-note">June 2027</div>
+        </div>
+      </div>
+
+      <div class="section-label">Study phases</div>
+      <div class="phase-grid">
+        <div class="phase-card blue">
+          <div class="phase-title">Phase 1 — Foundation · Jan 1 – Feb 15, 2027</div>
+          <div class="phase-body">
+            Post-December exams, take a proper week off first — you'll have just finished a heavy 8-subject cycle. Then start light SLM reading across all 4 subjects.<br><br>
+            <strong>MCS-207 (DBMS):</strong> ER diagrams, relational model, normalization, SQL basics. This is the conceptual phase — understand the "why" before you memorise anything.<br><br>
+            <strong>MCS-208 (Data Structures):</strong> Arrays, linked lists, stacks, queues, trees. You cleared MCSL-209 (the lab) in the Dec 2026 cycle — connect the theory now to the code you wrote then.
+          </div>
+        </div>
+        <div class="phase-card green">
+          <div class="phase-title">Phase 2 — Main prep · Feb 16 – Apr 30, 2027</div>
+          <div class="phase-body">
+            Deep intensive study. Run all 4 subjects in weekly rotation — 2 subjects per week in alternating pairs.<br><br>
+            <strong>Pair A:</strong> MCS-207 + BCOS-185 (E-Commerce and Entrepreneurship overlap conceptually — business logic, data management).<br>
+            <strong>Pair B:</strong> MCS-208 + MSEI-027 (both involve algorithmic and forensic analysis thinking — different domains, good mental refresh).<br><br>
+            <strong>SQL practice:</strong> Write queries by hand for MCS-207. IGNOU will ask you to write SQL on paper — practice this specifically. Normalization problems are very frequently asked.<br><br>
+            <strong>DS practice:</strong> Draw trees, graphs, and trace sorting algorithms manually. Insertion sort, merge sort, quick sort — know them step by step on paper.
+          </div>
+        </div>
+        <div class="phase-card orange">
+          <div class="phase-title">Phase 3 — Past papers + revision · May 1 – Jun 5, 2027</div>
+          <div class="phase-body">
+            All new material stops. Past papers only — minimum 5 years for each subject.<br><br>
+            <strong>BCOS-185 and MSEI-027</strong> are conceptual and reading-heavy. Focus on key definitions, case studies, and short answer formats. These are manageable — don't over-invest here at the expense of MCS-207/208.<br><br>
+            <strong>MCS-207:</strong> Normalisation (1NF/2NF/3NF/BCNF), ER to Relational mapping, transaction management, deadlock. These are the repeated exam topics — nail them cold.<br><br>
+            <strong>MCS-208:</strong> Time and space complexity, sorting algorithm traces, tree traversals (inorder/preorder/postorder), graph traversal (BFS/DFS). Again — paper practice, timed.
+          </div>
+        </div>
+        <div class="phase-card purple">
+          <div class="phase-title">Phase 4 — Final sprint · Jun 6 – exam start</div>
+          <div class="phase-body">
+            Revision only. Key formulas, definitions, diagrams. No new papers, no new chapters.<br><br>
+            By this point you will have cleared every single backlog from Sem 1 through Sem 3, completed Sem 4, 5, and 6 — that's the full BCA wrapped. Make the last push count.
+          </div>
+        </div>
+      </div>
+
+      <div class="info-box" style="background:rgba(255,179,71,0.05);border-color:rgba(255,179,71,0.2);margin-bottom:1.5rem;">
+        <strong style="color:var(--accent3);">Assignments for Sem 6:</strong> BCOS-185 and MSEI-027 assignments will be due by end of April 2027. MCS-207 and MCS-208 are backlog theory-only — no fresh assignments needed (you've already fulfilled those in earlier semesters). Keep an eye on IGNOU notices for exact dates.
+      </div>
+
+      <div class="info-box" style="background:rgba(168,255,120,0.05);border-color:rgba(168,255,120,0.15);">
+        <strong>No pending practicals in this cycle.</strong> All 4 backlog practicals (MCSL-204, MCSL-205, BCSL-135, MCSL-209) were registered and cleared at the study centre during the Dec 2026 cycle (Jul–Oct 2026 window). BCSL-159 (Algorithm Design Lab, Sem 5) also cleared in that same window. This cycle is pure theory — clean focus.
       </div>
 
     </div>
@@ -1045,6 +1340,126 @@
     document.getElementById(id).classList.add('active');
     btn.classList.add('active');
   }
+  // IST Clock + Multi-cycle Deadline System
+  function getIST() {
+    return new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }));
+  }
+
+  function formatIST(d) {
+    const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    let h = d.getHours(), m = d.getMinutes(), s = d.getSeconds();
+    const ampm = h >= 12 ? 'PM' : 'AM';
+    h = h % 12 || 12;
+    return `${days[d.getDay()]}, ${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()} · ${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')} ${ampm} IST`;
+  }
+
+  function daysUntil(dateStr) {
+    const now = getIST();
+    const target = new Date(dateStr);
+    target.setHours(23, 59, 59, 999);
+    return Math.ceil((target - now) / (1000 * 60 * 60 * 24));
+  }
+
+  // Deadlines in order
+  const CYCLES = [
+    {
+      key: 'sem4done',
+      id: 'assign-sem4',
+      deadline: '2026-04-30',
+      label: 'Sem 4',
+      description: 'April 30, 2026',
+      nextMsg: 'Sem 5 assignments are now open — deadline Oct 30, 2026.'
+    },
+    {
+      key: 'sem5done',
+      id: 'assign-sem5',
+      deadline: '2026-10-30',
+      label: 'Sem 5',
+      description: 'October 30, 2026',
+      nextMsg: 'Sem 6 assignments are now open — deadline Apr 30, 2027.'
+    },
+    {
+      key: 'sem6done',
+      id: 'assign-sem6',
+      deadline: '2027-04-30',
+      label: 'Sem 6',
+      description: 'April 30, 2027',
+      nextMsg: 'All assignments across your BCA are complete. 🎉'
+    }
+  ];
+
+  function getActiveCycle() {
+    const now = getIST();
+    for (let i = 0; i < CYCLES.length; i++) {
+      const c = CYCLES[i];
+      const isDone = localStorage.getItem(c.key) === 'true';
+      const isPast = daysUntil(c.deadline) < 0;
+      if (!isDone && !isPast) return i;
+      if (isDone || isPast) continue;
+    }
+    // All done or all past — show last
+    return CYCLES.length - 1;
+  }
+
+  function showCycle(idx) {
+    CYCLES.forEach((c, i) => {
+      const el = document.getElementById(c.id);
+      if (el) el.style.display = i === idx ? 'block' : 'none';
+    });
+  }
+
+  function updateAssignmentUI() {
+    const idx = getActiveCycle();
+    showCycle(idx);
+    const c = CYCLES[idx];
+    const days = daysUntil(c.deadline);
+    const bannerEl = document.getElementById('deadline-banner-text');
+    const assignEl = document.getElementById('assign-countdown');
+
+    let bannerHTML = '';
+    if (days > 0) {
+      const urgency = days <= 3 ? `<strong style="color:var(--accent4);">${days} day${days !== 1 ? 's' : ''} left</strong>` : `<strong style="color:var(--accent3);">${days} days left</strong>`;
+      bannerHTML = `${c.label} assignments · Deadline: <strong>${c.description}</strong> — ${urgency}. Use Study Block 1 (9 AM–12 PM) exclusively for assignments until done.`;
+    } else if (days === 0) {
+      bannerHTML = `${c.label} assignments · <strong>${c.description}</strong> — <strong style="color:var(--accent4);">TODAY — submit everything now!</strong>`;
+    } else {
+      const isDone = localStorage.getItem(c.key) === 'true';
+      bannerHTML = isDone
+        ? `${c.label} assignments submitted ✓ — ${c.nextMsg}`
+        : `${c.label} deadline passed · <strong>${c.description}</strong> — <span style="color:var(--text3);">submit if not done, then switch to next cycle.</span>`;
+    }
+    if (bannerEl) bannerEl.innerHTML = bannerHTML;
+
+    if (assignEl) {
+      if (days > 0) {
+        assignEl.textContent = `${c.description} (${days}d left)`;
+        assignEl.style.color = days <= 3 ? 'var(--accent4)' : 'var(--accent3)';
+      } else {
+        assignEl.textContent = days === 0 ? `${c.description} — TODAY` : `${c.description} (passed)`;
+        assignEl.style.color = days === 0 ? 'var(--accent4)' : 'var(--text3)';
+      }
+    }
+  }
+
+  function markSem4Done() {
+    localStorage.setItem('sem4done', 'true');
+    updateAssignmentUI();
+  }
+  function markSem5Done() {
+    localStorage.setItem('sem5done', 'true');
+    updateAssignmentUI();
+  }
+
+  function updateClock() {
+    const now = getIST();
+    document.getElementById('clock-line').textContent = formatIST(now);
+    updateAssignmentUI();
+  }
+
+  updateClock();
+  setInterval(updateClock, 1000);
+
   function switchSub(id, btn) {
     const parent = btn.closest('.section');
     parent.querySelectorAll('.sub-section').forEach(s => s.classList.remove('active'));
