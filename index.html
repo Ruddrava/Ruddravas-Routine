@@ -1134,35 +1134,631 @@
   <div id="fitness" class="section">
 
     <div class="info-box">
-      At <strong>93.45 kg / 5'9"</strong> the real target is <strong>~72–75 kg by December 2026</strong> — a lean, athletic footballer's build. You've joined a gym. Trainer has you on freehand conditioning for Month 1 before weights. This plan reflects that correctly.
+      At <strong>93.45 kg / 5'9"</strong> the real target is <strong>~72–75 kg by December 2026</strong> — a lean, athletic footballer's build. Trainer has you on freehand conditioning before weights. Evening 10,000-step walks continue every day on top of gym sessions. This plan is built around that reality — no overtraining, progressive load, sustainable discipline.
     </div>
 
     <div class="sub-tabs">
-      <button class="sub-btn active" onclick="switchSub('f1',this)">Month 1–3 · Gym conditioning</button>
+      <button class="sub-btn active" onclick="switchSub('f1',this)">Month 1–3 · Conditioning</button>
       <button class="sub-btn" onclick="switchSub('f2',this)">Month 4–6 · Weights intro</button>
       <button class="sub-btn" onclick="switchSub('f3',this)">Month 7–8 · Athletic phase</button>
       <button class="sub-btn" onclick="switchSub('fdiet',this)">Diet</button>
+      <button class="sub-btn" onclick="switchSub('fmistakes',this)">Mistakes to avoid</button>
       <button class="sub-btn" onclick="switchSub('fmile',this)">Milestones</button>
     </div>
 
-    <!-- GYM PHASE 1 -->
+    <!-- ── PHASE 1: CONDITIONING ─────────────────────────────────── -->
     <div id="f1" class="sub-section active">
+
       <div class="phase-card blue" style="margin-bottom:1rem;">
-        <div class="phase-title">Month 1–3 — Gym conditioning (trainer's plan)</div>
-        <div class="phase-body">Treadmill, dead hangs, pushup progression, core work, mobility. No weights yet. This builds joint stability, movement patterns, and base fitness before loading. Your trainer is correct — follow this religiously. Evening 10k step walks continue on all days.</div>
+        <div class="phase-title">Month 1–3 — Foundation conditioning (trainer's protocol)</div>
+        <div class="phase-body">
+          Treadmill, dead hangs, pushup progression, mobility, core, stretching. No barbells or dumbbells yet. This phase builds joint integrity, tendon resilience, movement patterns, aerobic base, and postural strength — the scaffolding that makes weight training safe later. <strong>Do not rush this phase.</strong> Your 10k evening walk counts as active recovery, not extra cardio — keep it.
+        </div>
       </div>
 
-      <div class="section-label">Weekly split</div>
-      <div class="workout-grid">
+      <!-- WEEKLY STRUCTURE -->
+      <div class="section-label" style="margin-top:1.5rem;">Weekly split — 5 gym days · 2 rest days</div>
+      <div class="workout-grid" style="grid-template-columns:repeat(3,1fr);margin-bottom:0.75rem;">
         <div class="workout-card">
           <div class="workout-day">Monday</div>
           <div class="workout-type">Upper push + core</div>
-          <div class="workout-ex">Treadmill 10 min warmup<br>Incline/knee pushups 3×12<br>Pike pushups 3×8<br>Plank 3×30–45s<br>Crunches 3×15<br>Cooldown stretch</div>
+          <div class="workout-ex">
+            Treadmill warmup 10 min<br>
+            Wall pushups → Incline pushups 3×12–15<br>
+            Pike pushups 3×8<br>
+            Dead hangs 3×10–20 s<br>
+            Plank 3×30 s<br>
+            Crunches 3×15<br>
+            Shoulder circles + wrist mobility<br>
+            Full-body stretch 5 min
+          </div>
+        </div>
+        <div class="workout-card">
+          <div class="workout-day">Tuesday</div>
+          <div class="workout-type">Lower body + mobility</div>
+          <div class="workout-ex">
+            Treadmill warmup 10 min<br>
+            Bodyweight squats 3×15<br>
+            Reverse lunges 3×10 each leg<br>
+            Glute bridges 3×15<br>
+            Calf raises 3×20<br>
+            Hip circles + leg swings<br>
+            Hip flexor stretch 60 s/side<br>
+            Hamstring + quad stretch 5 min
+          </div>
+        </div>
+        <div class="workout-card">
+          <div class="workout-day">Wednesday</div>
+          <div class="workout-type">Active recovery + cardio</div>
+          <div class="workout-ex">
+            Treadmill only — 20 min<br>
+            Speed: 4.5–5.5 km/h · Incline 2–3%<br>
+            Focus on steady breathing<br>
+            Full-body mobility flow 10 min<br>
+            Cat-cow, child's pose, thoracic rotations<br>
+            No intense exercises today
+          </div>
+        </div>
+        <div class="workout-card">
+          <div class="workout-day">Thursday</div>
+          <div class="workout-type">Push + grip + core</div>
+          <div class="workout-ex">
+            Treadmill warmup 10 min<br>
+            Incline pushups 3×12–15<br>
+            Diamond pushups (on knees) 3×8<br>
+            Dead hangs 4×15–25 s<br>
+            Leg raises (lying) 3×12<br>
+            Side plank 3×20 s each<br>
+            Wrist flexor/extensor stretch
+          </div>
+        </div>
+        <div class="workout-card">
+          <div class="workout-day">Friday</div>
+          <div class="workout-type">Full body + posture</div>
+          <div class="workout-ex">
+            Treadmill warmup 10 min<br>
+            Bodyweight squats 3×15<br>
+            Incline pushups 3×12<br>
+            Superman holds 3×10 (back ext.)<br>
+            Bird-dog 3×10 each side<br>
+            Dead hangs 3×20 s<br>
+            Plank 3×30–40 s<br>
+            Cooldown stretch 8 min
+          </div>
+        </div>
+        <div class="workout-card">
+          <div class="workout-day">Sat–Sun</div>
+          <div class="workout-type">Rest · Evening walk only</div>
+          <div class="workout-ex">
+            No gym. Complete rest.<br>
+            10,000 step evening walk as usual.<br>
+            Optional: 10 min gentle yoga or foam rolling.<br>
+            Sleep 7–8 hours. This is when you grow.
+          </div>
         </div>
       </div>
-    </div>
 
-  </div>
+      <!-- TREADMILL PROTOCOL -->
+      <div class="section-label" style="margin-top:1.75rem;">Treadmill protocol — progressive structure</div>
+      <div class="exam-table" style="margin-bottom:1.5rem;">
+        <div class="exam-row" style="grid-template-columns:100px 1fr 130px;background:rgba(255,255,255,0.02);">
+          <span class="exam-date">Period</span>
+          <span class="exam-name" style="color:var(--text3);font-size:12px;">Structure</span>
+          <span style="font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;">Target</span>
+        </div>
+        <div class="exam-row" style="grid-template-columns:100px 1fr 130px;">
+          <span class="exam-date">Week 1–2</span>
+          <span class="exam-name" style="font-size:12.5px;">Walk at 4.5–5 km/h · 0% incline · 10 min warmup only. Focus on posture: chest up, arms swinging, no holding rails.</span>
+          <span class="badge s4">Adaptation</span>
+        </div>
+        <div class="exam-row" style="grid-template-columns:100px 1fr 130px;">
+          <span class="exam-date">Week 3–4</span>
+          <span class="exam-name" style="font-size:12.5px;">Brisk walk 5–5.5 km/h · Incline 1–2% · 12–15 min. Introduce 2-min slow jog intervals (5.5–6 km/h) if comfortable.</span>
+          <span class="badge s4">Build base</span>
+        </div>
+        <div class="exam-row" style="grid-template-columns:100px 1fr 130px;">
+          <span class="exam-date">Week 5–6</span>
+          <span class="exam-name" style="font-size:12.5px;">Incline walk 5.5 km/h · 2–3% incline · 15 min. Add 3×2 min jog at 6–6.5 km/h with 90 s walk recovery between sets.</span>
+          <span class="badge bl">Intervals</span>
+        </div>
+        <div class="exam-row" style="grid-template-columns:100px 1fr 130px;">
+          <span class="exam-date">Week 7–9</span>
+          <span class="exam-name" style="font-size:12.5px;">Incline walk 5.5–6 km/h · 3% incline · 15–18 min. Jog intervals extended to 4×3 min. Heart rate should be around 130–145 bpm.</span>
+          <span class="badge bl">Cardio dev.</span>
+        </div>
+        <div class="exam-row" style="grid-template-columns:100px 1fr 130px;">
+          <span class="exam-date">Week 10–12</span>
+          <span class="exam-name" style="font-size:12.5px;">20 min sessions. Continuous jog 6–7 km/h for 8–10 min chunks. Incline walks at 3–4% for fat-burn on recovery minutes. Never sacrifice form for speed.</span>
+          <span class="badge bl">Stamina</span>
+        </div>
+      </div>
+
+      <!-- DEAD HANG PROGRESSION -->
+      <div class="section-label">Dead hang progression — grip & shoulder health</div>
+      <div class="phase-grid" style="grid-template-columns:1fr 1fr;margin-bottom:1.5rem;">
+        <div class="phase-card blue">
+          <div class="phase-title">Month 1 — Grip tolerance</div>
+          <div class="phase-body">
+            Start with <strong>3 sets of 5–10 second hangs</strong>. Use an overhand grip, shoulder-width. Let your shoulders shrug up fully — then actively depress them (pack shoulders down). This teaches scapular control.<br><br>
+            Rest 60–90 s between sets. Don't force duration. Skin tears are common early — use chalk or gloves.
+          </div>
+        </div>
+        <div class="phase-card green">
+          <div class="phase-title">Month 2 — Build to 20–30 s</div>
+          <div class="phase-body">
+            Target <strong>3–4 sets of 15–25 second hangs</strong>. Add active scapular depressions: hang passively 3 s → retract/depress shoulder blades → hold 3 s → repeat. This is dead hang training AND a lat activation drill.<br><br>
+            When 3×20 s feels easy, you're close to a dead-hang pull-up.
+          </div>
+        </div>
+        <div class="phase-card orange">
+          <div class="phase-title">Month 3 — 30–45 s hangs</div>
+          <div class="phase-body">
+            Target <strong>3×30–45 s continuous hangs</strong>. Try negative pull-ups if available: jump or step to top position (chin over bar) and lower yourself as slowly as possible — 3–5 seconds down. 3×3 reps. This builds pull-up strength directly.
+          </div>
+        </div>
+        <div class="phase-card neutral">
+          <div class="phase-title">Why dead hangs matter</div>
+          <div class="phase-body">
+            Decompresses spine. Builds grip strength. Stretches lats and thoracic region. Corrects rounded posture from prolonged sitting. Conditions tendons for future pulling work (rows, pull-ups, deadlifts). Non-negotiable for desk workers and beginners.
+          </div>
+        </div>
+      </div>
+
+      <!-- PUSHUP PROGRESSION -->
+      <div class="section-label">Pushup progression — from zero to full form</div>
+      <div class="exam-table" style="margin-bottom:1.5rem;">
+        <div class="exam-row" style="grid-template-columns:110px 1fr 120px;background:rgba(255,255,255,0.02);">
+          <span class="exam-date">Stage</span>
+          <span class="exam-name" style="color:var(--text3);font-size:12px;">Exercise & cues</span>
+          <span style="font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;">Target</span>
+        </div>
+        <div class="exam-row" style="grid-template-columns:110px 1fr 120px;">
+          <span class="exam-date">Stage 1</span>
+          <span class="exam-name" style="font-size:12.5px;"><strong>Wall pushups</strong> — Stand arm's length from wall. Hands shoulder-width. Lower chest toward wall, push back. Body straight throughout. Perfect starting point — builds movement pattern with zero injury risk.</span>
+          <span class="badge s4">3×15</span>
+        </div>
+        <div class="exam-row" style="grid-template-columns:110px 1fr 120px;">
+          <span class="exam-date">Stage 2</span>
+          <span class="exam-name" style="font-size:12.5px;"><strong>Incline pushups</strong> — Hands on bench or bar at ~waist height. Same straight body. Move to lower heights progressively. This is the bridge between wall and floor.</span>
+          <span class="badge s4">3×12–15</span>
+        </div>
+        <div class="exam-row" style="grid-template-columns:110px 1fr 120px;">
+          <span class="exam-date">Stage 3</span>
+          <span class="exam-name" style="font-size:12.5px;"><strong>Knee pushups</strong> — On the floor, knees down. Keep hips aligned — don't let them drop. Chest touches floor each rep. 3–0–1 tempo (3 s down, 0 pause, 1 s up). Build reps before moving to Stage 4.</span>
+          <span class="badge bl">3×10–15</span>
+        </div>
+        <div class="exam-row" style="grid-template-columns:110px 1fr 120px;">
+          <span class="exam-date">Stage 4</span>
+          <span class="exam-name" style="font-size:12.5px;"><strong>Negative (eccentric) pushups</strong> — Start in full top position (toes, not knees). Lower yourself as slowly as possible (5–8 seconds). Collapse to floor. Reset. Builds full pushup strength rapidly.</span>
+          <span class="badge bl">3×5–8</span>
+        </div>
+        <div class="exam-row" style="grid-template-columns:110px 1fr 120px;">
+          <span class="exam-date">Stage 5</span>
+          <span class="exam-name" style="font-size:12.5px;"><strong>Full pushup</strong> — Toes, full body plank. Hands slightly wider than shoulders. Lower chest to 1 cm off floor. Push fully up — lock elbows. Never rush this. Quality reps over quantity always.</span>
+          <span class="badge bl">3×8–10</span>
+        </div>
+      </div>
+
+      <!-- CORE WORK -->
+      <div class="section-label">Core & posture work — done after every session</div>
+      <div class="phase-grid" style="grid-template-columns:1fr 1fr 1fr;margin-bottom:1.5rem;">
+        <div class="phase-card green">
+          <div class="phase-title">Plank variations</div>
+          <div class="phase-body">
+            <strong>Standard plank:</strong> forearms, 30–60 s<br>
+            <strong>Side plank:</strong> 20–30 s each side<br>
+            <strong>Plank shoulder taps:</strong> 10 each side<br><br>
+            Keep hips level. Don't hold breath. Squeeze glutes. These build the spinal stability that protects you in every gym exercise.
+          </div>
+        </div>
+        <div class="phase-card blue">
+          <div class="phase-title">Anti-rotation core</div>
+          <div class="phase-body">
+            <strong>Bird-dog:</strong> 3×10 each side — arm + opposite leg extend while back stays flat<br>
+            <strong>Dead bug:</strong> 3×8 each side — press lower back into floor, opposite arm-leg lower slowly<br><br>
+            These train the core the way it actually works — resisting rotation.
+          </div>
+        </div>
+        <div class="phase-card orange">
+          <div class="phase-title">Posture-fix exercises</div>
+          <div class="phase-body">
+            <strong>Superman hold:</strong> 3×10 (2 s hold) — lie prone, lift chest + legs. Fixes anterior pelvic tilt.<br>
+            <strong>Wall angel:</strong> 2×10 — back flat on wall, slide arms up and down. Fixes rounded shoulders.<br>
+            <strong>Chin tuck:</strong> 2×15 — pulls head back over spine. Fixes forward head posture.
+          </div>
+        </div>
+      </div>
+
+      <!-- COOLDOWN STRETCHES -->
+      <div class="section-label">Cooldown stretching — mandatory after every session (8–10 min)</div>
+      <div class="phase-card neutral" style="margin-bottom:1rem;">
+        <div class="phase-body" style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem 2rem;">
+          <div>• <strong>Child's pose</strong> — 60 s · decompress spine, stretch lats</div>
+          <div>• <strong>Hip flexor lunge stretch</strong> — 45 s each side</div>
+          <div>• <strong>Doorway chest stretch</strong> — 30 s each arm · open tight pec minor</div>
+          <div>• <strong>Seated hamstring stretch</strong> — 45 s each leg</div>
+          <div>• <strong>Pigeon pose</strong> (modified) — 60 s each side · hip external rotation</div>
+          <div>• <strong>Thoracic rotation</strong> — 10 each side (seated or lying)</div>
+          <div>• <strong>Wrist circles + finger stretches</strong> — 30 s · after hangs especially</div>
+          <div>• <strong>Cat-cow flow</strong> — 10 breaths · finish every session with this</div>
+        </div>
+      </div>
+
+      <!-- REST TIMES -->
+      <div class="section-label">Rest times between sets</div>
+      <div class="exam-table" style="margin-bottom:1.5rem;">
+        <div class="exam-row" style="grid-template-columns:180px 1fr;">
+          <span class="exam-name" style="font-size:12.5px;">Pushup variations</span>
+          <span class="exam-date" style="min-width:unset;color:var(--text2);">60–90 seconds. You're a beginner — full rest between sets. Short rest = bad reps = bad habit.</span>
+        </div>
+        <div class="exam-row" style="grid-template-columns:180px 1fr;">
+          <span class="exam-name" style="font-size:12.5px;">Dead hangs</span>
+          <span class="exam-date" style="min-width:unset;color:var(--text2);">90 seconds. Grip fatigues fast — give it time. Never do hangs with compromised grip.</span>
+        </div>
+        <div class="exam-row" style="grid-template-columns:180px 1fr;">
+          <span class="exam-name" style="font-size:12.5px;">Plank & core</span>
+          <span class="exam-date" style="min-width:unset;color:var(--text2);">45–60 seconds. Core recovers quickly but form matters — don't rush into next set sagging.</span>
+        </div>
+        <div class="exam-row" style="grid-template-columns:180px 1fr;">
+          <span class="exam-name" style="font-size:12.5px;">Squats, lunges, glute bridges</span>
+          <span class="exam-date" style="min-width:unset;color:var(--text2);">60–75 seconds. Bodyweight leg work doesn't need long rest, but take it if breathing isn't recovered.</span>
+        </div>
+        <div class="exam-row" style="grid-template-columns:180px 1fr;">
+          <span class="exam-name" style="font-size:12.5px;">Between exercises</span>
+          <span class="exam-date" style="min-width:unset;color:var(--text2);">2–3 minutes. Use this time to stretch the previous muscle group, drink water, or do mobility work.</span>
+        </div>
+      </div>
+
+      <!-- PROGRESSION TARGETS -->
+      <div class="section-label">2–3 month progression targets</div>
+      <div class="exam-table" style="margin-bottom:1.5rem;">
+        <div class="exam-row" style="grid-template-columns:140px 1fr 120px;background:rgba(255,255,255,0.02);">
+          <span class="exam-date">Exercise</span>
+          <span class="exam-name" style="color:var(--text3);font-size:12px;">Where you should be by end of Month 3</span>
+          <span style="font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;">Timeline</span>
+        </div>
+        <div class="exam-row" style="grid-template-columns:140px 1fr 120px;">
+          <span class="exam-date">Treadmill</span>
+          <span class="exam-name" style="font-size:12.5px;">Continuous jog at 6–7 km/h for 10 minutes without stopping. Comfortable at 3% incline brisk walk for 15 min. Resting HR dropping week by week.</span>
+          <span class="badge bl">3 months</span>
+        </div>
+        <div class="exam-row" style="grid-template-columns:140px 1fr 120px;">
+          <span class="exam-date">Dead hang</span>
+          <span class="exam-name" style="font-size:12.5px;">3×30–40 second hangs comfortably. Active scapular depressions mastered. Attempting 3–5 negative pull-up reps with 4–5 s descent each.</span>
+          <span class="badge bl">2.5 months</span>
+        </div>
+        <div class="exam-row" style="grid-template-columns:140px 1fr 120px;">
+          <span class="exam-date">Pushups</span>
+          <span class="exam-name" style="font-size:12.5px;">At minimum: 3×10 proper knee pushups with 3 s eccentric. Target: 5–8 full floor pushups per set with correct form by end of Month 3.</span>
+          <span class="badge bl">3 months</span>
+        </div>
+        <div class="exam-row" style="grid-template-columns:140px 1fr 120px;">
+          <span class="exam-date">Plank</span>
+          <span class="exam-name" style="font-size:12.5px;">From 30 s → 60 s continuous standard plank. Side plank 40–45 s each side. Bird-dog 3×12 each side without losing balance.</span>
+          <span class="badge s4">2 months</span>
+        </div>
+        <div class="exam-row" style="grid-template-columns:140px 1fr 120px;">
+          <span class="exam-date">Bodyweight squat</span>
+          <span class="exam-name" style="font-size:12.5px;">3×20 with full depth (thighs parallel or below), knees tracking over toes, back straight, heels grounded. Lunges: 3×12 each leg without wobbling.</span>
+          <span class="badge s4">6 weeks</span>
+        </div>
+        <div class="exam-row" style="grid-template-columns:140px 1fr 120px;">
+          <span class="exam-date">Body weight</span>
+          <span class="exam-name" style="font-size:12.5px;">Realistic expectation: 4–6 kg fat loss in 3 months with proper diet. Don't chase the scale — measure waist circumference monthly. Clothes fitting looser = winning.</span>
+          <span class="badge bl">3 months</span>
+        </div>
+      </div>
+
+      <!-- FULL SESSION TEMPLATE -->
+      <div class="section-label">Full session template — 50–60 minutes total</div>
+      <div class="phase-card green" style="margin-bottom:1rem;">
+        <div class="phase-body" style="display:grid;grid-template-columns:80px 1fr;gap:0.4rem 1rem;align-items:start;">
+          <span style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);">0–10 min</span><span><strong>Warmup</strong> — Treadmill walk/jog. Arm circles, leg swings, hip rotations, wrist prep. Never skip this. Cold muscles tear.</span>
+          <span style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);">10–35 min</span><span><strong>Main work</strong> — Pushup variation + dead hangs + leg work (as per day's focus). Keep intensity moderate — you should be able to speak a sentence.</span>
+          <span style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);">35–45 min</span><span><strong>Core block</strong> — Plank, bird-dog, dead bug, superman holds. Slow and controlled. Every rep deliberate.</span>
+          <span style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);">45–55 min</span><span><strong>Cooldown stretch</strong> — Mandatory. Hit every tight area. Focus on hip flexors (tight from sitting), chest (from posture), hamstrings.</span>
+          <span style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);">Evening</span><span><strong>10,000 step walk</strong> — Continue as always. This is your fat-burning zone cardio — long, easy, consistent. Don't try to make it a run.</span>
+        </div>
+      </div>
+
+    </div><!-- end f1 -->
+
+    <!-- ── PHASE 2: WEIGHTS INTRO ─────────────────────────────────── -->
+    <div id="f2" class="sub-section">
+
+      <div class="phase-card orange" style="margin-bottom:1rem;">
+        <div class="phase-title">Month 4–6 — Introduction to weight training</div>
+        <div class="phase-body">
+          You earn access to weights when you hit these benchmarks: <strong>10 full pushups</strong>, <strong>30 s dead hang</strong>, <strong>20 bodyweight squats with good form</strong>, <strong>jog 10 min continuously</strong>. If you're not there yet, stay in Phase 1 — this isn't a timeline, it's a standard. Entering weights too early with bad movement patterns = injury = months lost.
+        </div>
+      </div>
+
+      <div class="section-label">Transition criteria — you're ready when:</div>
+      <div class="phase-grid" style="grid-template-columns:1fr 1fr;margin-bottom:1.5rem;">
+        <div class="phase-card green">
+          <div class="phase-title">Physical benchmarks</div>
+          <div class="phase-body">
+            ✓ 3×10 full floor pushups (no knee version)<br>
+            ✓ 3×30 s dead hang comfortable<br>
+            ✓ 3×20 bodyweight squats — full depth, no wobble<br>
+            ✓ 3×60 s plank with rigid form<br>
+            ✓ Jog 10 continuous minutes at 6 km/h<br>
+            ✓ 5 negative pull-up reps (slow 5 s descent)
+          </div>
+        </div>
+        <div class="phase-card blue">
+          <div class="phase-title">Mindset & habit benchmarks</div>
+          <div class="phase-body">
+            ✓ 10–12 weeks of consistent gym attendance (4–5×/week)<br>
+            ✓ Cooldown stretch has become automatic<br>
+            ✓ Know your body — can tell soreness from pain<br>
+            ✓ Sleep, diet, hydration habits established<br>
+            ✓ Trainer agrees you're ready<br>
+            ✓ No active injuries or joint complaints
+          </div>
+        </div>
+      </div>
+
+      <div class="section-label">First weights split — full body 3×/week</div>
+      <div class="phase-card neutral" style="margin-bottom:1rem;">
+        <div class="phase-body">
+          Start with a <strong>full body 3-day split</strong> (Mon/Wed/Fri), not a bro-split. This gives each muscle group 3 hits per week while allowing recovery. Reps stay in 10–15 range with light weights — focus is <strong>perfect form, not load</strong>. Add weight only when you can do all reps with strict form for 2 consecutive sessions.
+        </div>
+      </div>
+
+      <div class="workout-grid" style="grid-template-columns:repeat(3,1fr);margin-bottom:1.5rem;">
+        <div class="workout-card">
+          <div class="workout-day">Day A — Pull</div>
+          <div class="workout-type">Back + Biceps</div>
+          <div class="workout-ex">
+            Cable rows or DB rows 3×12<br>
+            Lat pulldown (light) 3×12<br>
+            DB bicep curls 3×12<br>
+            Face pulls 3×15<br>
+            Dead hangs 3×30 s<br>
+            Core: bird-dog 3×10<br>
+            Full stretch
+          </div>
+        </div>
+        <div class="workout-card">
+          <div class="workout-day">Day B — Push</div>
+          <div class="workout-type">Chest + Shoulders + Tri</div>
+          <div class="workout-ex">
+            Incline DB press (light) 3×12<br>
+            Full pushups 3×10<br>
+            DB shoulder press 3×12<br>
+            Tricep pushdown (cable) 3×12<br>
+            Lateral raises 3×12<br>
+            Core: plank 3×45 s
+          </div>
+        </div>
+        <div class="workout-card">
+          <div class="workout-day">Day C — Legs</div>
+          <div class="workout-type">Quads + Glutes + Core</div>
+          <div class="workout-ex">
+            Goblet squats 3×12 (KB/DB)<br>
+            Romanian deadlift 3×12 (light)<br>
+            Walking lunges 3×10/leg<br>
+            Leg press (light) 3×15<br>
+            Glute bridges weighted 3×15<br>
+            Ab wheel or leg raise 3×10
+          </div>
+        </div>
+      </div>
+
+      <div class="info-box" style="background:rgba(255,179,71,0.05);border-color:rgba(255,179,71,0.2);">
+        <strong style="color:var(--accent3);">Critical weight training rules for beginners:</strong> Always start with the lightest weight available. Learn the movement for 2 weeks before adding weight. A spotter or trainer must check your form on deadlifts and squats before going heavy. Increase weight in the smallest increment available — 1.25 kg plates exist for a reason. Log every session: weight, reps, sets. Progress is measured in months, not days.
+      </div>
+
+    </div><!-- end f2 -->
+
+    <!-- ── PHASE 3: ATHLETIC PHASE ─────────────────────────────────── -->
+    <div id="f3" class="sub-section">
+
+      <div class="phase-card green" style="margin-bottom:1rem;">
+        <div class="phase-title">Month 7–8 — Athletic development phase</div>
+        <div class="phase-body">
+          By this point you've lost significant weight, built a strength foundation, and have solid form. Now you train like an athlete — combining strength, conditioning, mobility, and explosive movement. This is the footballer's fitness phase your trainer is building you toward. Evening walks may reduce to 7,000–8,000 steps as gym intensity increases.
+        </div>
+      </div>
+
+      <div class="phase-grid" style="grid-template-columns:1fr 1fr;margin-bottom:1.5rem;">
+        <div class="phase-card blue">
+          <div class="phase-title">Strength — 4×/week upper-lower split</div>
+          <div class="phase-body">
+            Upper A: Bench press, barbell rows, shoulder press, pull-ups (assisted → unassisted), tricep dips<br><br>
+            Lower A: Back squat, Romanian deadlift, hip thrust, box step-ups, calf raises<br><br>
+            Reps: 6–10 for compound lifts, 10–15 for isolation. Progressive overload tracked weekly.
+          </div>
+        </div>
+        <div class="phase-card orange">
+          <div class="phase-title">Conditioning — 2×/week athletic work</div>
+          <div class="phase-body">
+            <strong>Session 1:</strong> 20 min interval run — 1 min at 8–9 km/h, 90 s at 5.5 km/h × 8 rounds<br><br>
+            <strong>Session 2:</strong> Circuit — box jumps, burpees, mountain climbers, lateral shuffles, battle ropes if available<br><br>
+            This develops the engine for sport and keeps fat loss going.
+          </div>
+        </div>
+        <div class="phase-card green">
+          <div class="phase-title">Targets by end of Month 8</div>
+          <div class="phase-body">
+            ✓ 1 dead-hang pull-up unassisted<br>
+            ✓ 20+ full pushups per set<br>
+            ✓ Run 3 km without stopping<br>
+            ✓ Squat bodyweight on the bar<br>
+            ✓ Weight: 80–84 kg range<br>
+            ✓ Waist noticeably slimmer<br>
+            ✓ Stamina of a footballer
+          </div>
+        </div>
+        <div class="phase-card neutral">
+          <div class="phase-title">Monthly check-ins</div>
+          <div class="phase-body">
+            Track: weight (morning, fasted), waist circumference, resting heart rate, max pushups, max hang time, treadmill speed at "comfortable" effort. These numbers don't lie. If weight stalls for 3+ weeks — dial in diet, not exercise. You can't out-train a poor diet.
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end f3 -->
+
+    <!-- ── DIET ─────────────────────────────────── -->
+    <div id="fdiet" class="sub-section">
+
+      <div class="info-box">
+        At 93.45 kg, a <strong>500–700 kcal deficit</strong> per day will produce ~0.5 kg/week fat loss — the science-recommended ceiling for preserving muscle while losing fat. Never go below 1,800 kcal/day while training. Protein is the single most important macro for body recomposition. Everything else is secondary.
+      </div>
+
+      <div class="section-label">Daily nutrition framework</div>
+      <div class="phase-grid" style="grid-template-columns:1fr 1fr;margin-bottom:1.5rem;">
+        <div class="phase-card green">
+          <div class="phase-title">Protein — non-negotiable</div>
+          <div class="phase-body">
+            Target: <strong>130–150 g protein/day</strong> (~1.5–1.6 g per kg bodyweight)<br><br>
+            Sources: eggs, chicken breast, fish (rohu, katla, hilsa), paneer (moderate), Greek yoghurt, dal + rice combo, soya chunks<br><br>
+            Spread across 4 meals. Don't try to hit it all in 2 meals — absorption is limited per meal (~40–45 g usable).
+          </div>
+        </div>
+        <div class="phase-card blue">
+          <div class="phase-title">Carbs — fuel for training</div>
+          <div class="phase-body">
+            Don't eliminate carbs. Time them strategically: <strong>largest carb meals around workouts</strong> (pre + post gym).<br><br>
+            Prefer: brown rice, oats, sweet potato, whole wheat roti, banana. Avoid: maida, white bread, instant noodles, biscuits, fried snacks. Carbs after 8 PM minimal — they won't be used.
+          </div>
+        </div>
+        <div class="phase-card orange">
+          <div class="phase-title">Sample day — Bengali context</div>
+          <div class="phase-body">
+            <strong>Breakfast 8 AM:</strong> 4 eggs (2 whole + 2 white scrambled) + 2 wheat roti + banana<br>
+            <strong>Lunch 1 PM:</strong> 150g fish curry/chicken + 1 cup brown rice + sabzi + dal<br>
+            <strong>Pre-gym snack 4 PM:</strong> Banana + handful peanuts or Greek yoghurt<br>
+            <strong>Post-gym 7 PM:</strong> Protein + light carb (chire/poha or roti + egg)<br>
+            <strong>Dinner 9 PM:</strong> Dal + sabzi + 1 roti (no heavy rice at night)
+          </div>
+        </div>
+        <div class="phase-card neutral">
+          <div class="phase-title">What to cut immediately</div>
+          <div class="phase-body">
+            ✗ Chanachur, chips, namkeen — empty calories<br>
+            ✗ Cold drinks, packaged juices — liquid sugar<br>
+            ✗ Biscuits, parle-g — refined carb bombs<br>
+            ✗ Deep fried street food daily<br>
+            ✗ Excess oil in cooking (2 tsp/meal max)<br>
+            ✗ Late night meals after 10 PM<br><br>
+            You don't need to be perfect — you need to be consistent. 80% clean eating beats 100% clean for 1 week then relapse.
+          </div>
+        </div>
+      </div>
+
+      <div class="section-label">Hydration & sleep — the underrated pair</div>
+      <div class="phase-card blue" style="margin-bottom:1rem;">
+        <div class="phase-body">
+          <strong>Water:</strong> 3–3.5 litres/day. Drink 500 ml before gym, sip during, 300 ml immediately after. Dehydration drops performance by 10–20% and increases injury risk. If urine is dark yellow — drink more.<br><br>
+          <strong>Sleep:</strong> Non-negotiable 7–8 hours. Fat loss happens during sleep — cortisol drops, growth hormone releases, muscles repair. Sleeping 5 hours while training hard defeats 40% of your gym effort. No exceptions.
+        </div>
+      </div>
+
+    </div><!-- end fdiet -->
+
+    <!-- ── MISTAKES TO AVOID ─────────────────────────────────── -->
+    <div id="fmistakes" class="sub-section">
+
+      <div class="section-label">Beginner mistakes — read once, remember always</div>
+      <div class="phase-grid" style="grid-template-columns:1fr 1fr;">
+        <div class="phase-card orange">
+          <div class="phase-title">❌ Skipping warmup to "save time"</div>
+          <div class="phase-body">Cold muscles and joints tear. One pulled muscle = 2–6 weeks off the gym. 10 minutes of warmup protects months of progress. The warmup IS part of the session.</div>
+        </div>
+        <div class="phase-card orange">
+          <div class="phase-title">❌ Going too heavy too fast</div>
+          <div class="phase-body">Ego lifting with bad form builds bad movement patterns that cause injuries years later. The goal right now is movement quality, not weight. A 10 kg perfect squat beats a 60 kg ugly squat every time.</div>
+        </div>
+        <div class="phase-card orange">
+          <div class="phase-title">❌ Skipping rest days</div>
+          <div class="phase-body">You get stronger during rest, not during the workout. The workout is the stimulus. Rest + food is where adaptation happens. Training 7 days/week as a beginner = overtraining = regression.</div>
+        </div>
+        <div class="phase-card orange">
+          <div class="phase-title">❌ Comparing to others in the gym</div>
+          <div class="phase-body">The guy benching 100 kg has been training for 4–6 years. You've been at it 2 weeks. Compare yourself to last week's version only. Progress is personal. Jealousy breaks focus and leads to dangerous shortcuts.</div>
+        </div>
+        <div class="phase-card orange">
+          <div class="phase-title">❌ Ignoring pain vs soreness</div>
+          <div class="phase-body">Muscle soreness (DOMS) 24–72 hrs after training = normal. Sharp joint pain, pain during movement, or pain that worsens = stop immediately and consult. Never train through joint pain. Never.</div>
+        </div>
+        <div class="phase-card orange">
+          <div class="phase-title">❌ Eating nothing before gym</div>
+          <div class="phase-body">Training fasted as a beginner tanks performance and increases muscle breakdown. Eat something — even a banana and a handful of peanuts 60–90 min before training. Your gym session will immediately improve.</div>
+        </div>
+        <div class="phase-card orange">
+          <div class="phase-title">❌ Inconsistency — "I'll restart Monday"</div>
+          <div class="phase-body">The biggest gains killer. Missing 3 sessions/week consistently is 40% of the program gone. Results in fitness are 80% consistency, 20% everything else. Show up even when you don't feel like it — especially then.</div>
+        </div>
+        <div class="phase-card orange">
+          <div class="phase-title">❌ No cooldown or stretching</div>
+          <div class="phase-body">Flexibility lost during this phase is hard to rebuild. Tight hip flexors, tight pecs, tight hamstrings — these cause chronic postural issues and pain. 8 minutes of stretch after training is a tiny investment with massive returns over 6 months.</div>
+        </div>
+      </div>
+
+    </div><!-- end fmistakes -->
+
+    <!-- ── MILESTONES ─────────────────────────────────── -->
+    <div id="fmile" class="sub-section">
+
+      <div class="section-label">Weight & fitness milestones — realistic projection</div>
+      <div class="exam-table" style="margin-bottom:1.5rem;">
+        <div class="exam-row" style="grid-template-columns:110px 80px 1fr;">
+          <span class="exam-date">Date</span>
+          <span class="milestone-kg" style="font-size:14px;">Target kg</span>
+          <span class="exam-name" style="color:var(--text3);font-size:12px;">Fitness benchmark alongside</span>
+        </div>
+        <div class="exam-row" style="grid-template-columns:110px 80px 1fr;">
+          <span class="exam-date">May 2026</span>
+          <span class="milestone-kg">93.5</span>
+          <span class="milestone-note">Starting point. First gym week. Building habit and routine.</span>
+        </div>
+        <div class="exam-row" style="grid-template-columns:110px 80px 1fr;">
+          <span class="exam-date">Jun 2026</span>
+          <span class="milestone-kg">90–91</span>
+          <span class="milestone-note">Dead hang: 20 s. Knee pushups: 3×12. Treadmill jog: 5 min continuous.</span>
+        </div>
+        <div class="exam-row" style="grid-template-columns:110px 80px 1fr;">
+          <span class="exam-date">Jul 2026</span>
+          <span class="milestone-kg">87–88</span>
+          <span class="milestone-note">Dead hang: 30 s. Full pushups: 5–6. Treadmill jog: 8 min continuous.</span>
+        </div>
+        <div class="exam-row" style="grid-template-columns:110px 80px 1fr;">
+          <span class="exam-date">Aug 2026</span>
+          <span class="milestone-kg">84–85</span>
+          <span class="milestone-note">Dead hang: 40 s. Full pushups: 3×8–10. Jog 10 min. Transitioning to weights.</span>
+        </div>
+        <div class="exam-row" style="grid-template-columns:110px 80px 1fr;">
+          <span class="exam-date">Sep 2026</span>
+          <span class="milestone-kg">82–83</span>
+          <span class="milestone-note">Phase 2 weights. Goblet squat, lat pulldown, DB press with light load.</span>
+        </div>
+        <div class="exam-row" style="grid-template-columns:110px 80px 1fr;">
+          <span class="exam-date">Oct 2026</span>
+          <span class="milestone-kg">79–80</span>
+          <span class="milestone-note">Strength base building. First pull-up attempt. Run 2–3 km without stopping.</span>
+        </div>
+        <div class="exam-row" style="grid-template-columns:110px 80px 1fr;">
+          <span class="exam-date">Nov 2026</span>
+          <span class="milestone-kg">77–78</span>
+          <span class="milestone-note">Athletic phase. Barbell compound lifts. Conditioning circuits. Visibly leaner.</span>
+        </div>
+        <div class="exam-row" style="grid-template-columns:110px 80px 1fr;">
+          <span class="exam-date">Dec 2026</span>
+          <span class="milestone-kg" style="color:var(--accent3);">72–75</span>
+          <span class="milestone-note">Target achieved. 1 pull-up unassisted. 20+ pushups. 5 km run. Footballer's build.</span>
+        </div>
+      </div>
+
+      <div class="info-box" style="background:rgba(255,126,179,0.05);border-color:rgba(255,126,179,0.2);">
+        <strong style="color:var(--accent4);">Reality check:</strong> These numbers assume consistent gym (4–5×/week), continued evening walks, 150g+ daily protein, and a 500 kcal deficit. Miss any one consistently — adjust expectations. But the direction is right. A footballer's build by December is completely realistic. You're not building a bodybuilder — you're building an engine. The aesthetic follows automatically.
+      </div>
+
+    </div><!-- end fmile -->
+
+  </div><!-- end #fitness -->
 
 </main>
 
